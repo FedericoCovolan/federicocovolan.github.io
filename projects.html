@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Federico Covolan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F3EEFF;
+      --bg2: #F9F9F9;
+      --purple: #9C31F6;
+      --purple-light: #EDE0FF;
+      --text: #181818;
+      --text-muted: #555;
+      --nav-bg: rgba(243, 238, 255, 0.85);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', sans-serif; background: var(--bg2); color: var(--text); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(156,49,246,0.08);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .logo-mark { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: -1px; }
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3; }
+
+    .nav-links { display: flex; gap: 48px; list-style: none; }
+    .nav-links a { font-size: 14px; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--purple); }
+
+    .nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--purple); padding-bottom: 2px; transition: color 0.2s; }
+    .nav-cta a:hover { color: var(--purple); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); }
+
+    /* HERO */
+    .projects-hero {
+      padding: 140px 48px 80px;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .projects-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(72px, 14vw, 160px);
+      letter-spacing: -4px;
+      line-height: 0.9;
+      color: var(--purple);
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .projects-subtitle {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(16px, 2vw, 22px);
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* INTRO */
+    .projects-intro {
+      padding: 60px 48px;
+      background: var(--bg2);
+      border-top: 1px solid rgba(156,49,246,0.1);
+    }
+
+    .projects-intro-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 60px;
+    }
+
+    .intro-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .intro-text p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* PROJECTS GRID SECTION */
+    .projects-section {
+      padding: 60px 48px;
+      border-top: 1px solid rgba(156,49,246,0.1);
+    }
+
+    .projects-section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+      color: var(--text);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .project-card:hover .project-card-img { transform: scale(1.02); }
+
+    .project-card-img-wrap {
+      overflow: hidden;
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, rgba(156,49,246,0.08), rgba(156,49,246,0.2));
+    }
+
+    .project-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--purple);
+      font-family: 'Space Grotesk', sans-serif;
+      text-align: center;
+      padding: 10px;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-card-img-placeholder { transform: scale(1.02); }
+
+    .project-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project-card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .project-card-year {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* wide card spans 2 columns */
+    .project-card.wide .project-card-img-wrap { aspect-ratio: 2/1; }
+
+    /* FOOTER */
+    footer {
+      background: var(--purple-light);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--purple); }
+    .footer-right a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(12px); padding: 24px; gap: 20px; border-bottom: 1px solid rgba(156,49,246,0.1); }
+      .hamburger { display: flex; }
+
+      .projects-hero { padding: 100px 24px 60px; }
+      .projects-title { letter-spacing: -2px; }
+
+      .projects-intro { padding: 40px 24px; }
+      .projects-intro-inner { grid-template-columns: 1fr; gap: 24px; }
+
+      .projects-section { padding: 40px 24px; }
+      .projects-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .project-card.wide { grid-column: span 2; }
+
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.wide { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-mark">FC</span>
+    <span class="logo-text">Federico<br>Covolan</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About me</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+  </ul>
+  <div class="nav-cta" id="navCta">
+    <a href="mailto:federicocovolan60@gmail.com">Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+
+  <section class="projects-hero">
+    <h1 class="projects-title">PROJECTS</h1>
+    <p class="projects-subtitle">Navigating innovation across multiple scales</p>
+  </section>
+
+  <section class="projects-intro">
+    <div class="projects-intro-inner">
+      <div>
+        <p class="intro-label">Systemic, Industrial<br>and Social Design</p>
+      </div>
+      <div class="intro-text">
+        <p>A collection of works exploring the transition from tangible objects to complex, intangible systems. Since 2022, my practice has evolved from Product Design to Systemic and Strategic frameworks, utilizing Speculative and Service tools to tackle contemporary challenges.</p>
+        <p>Each project is an exercise in visualizing the invisible connections that make an ecosystem work, moving from high-level research to practical, modular execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEMIC & STRATEGIC DESIGN -->
+  <section class="projects-section">
+    <div class="projects-section-inner">
+      <p class="section-title">Systemic and Strategic Design</p>
+      <div class="projects-grid">
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <!-- <img src="img/prolemna.jpg" alt="ProLemna" class="project-card-img"> -->
+            <div class="project-card-img-placeholder">ProLemna<br>img/prolemna.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">ProLemna</span>
+            <span class="project-card-year">2023</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Socio-technical challenges<br>img/sociotechnical.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Socio-technical challenges</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Projecting and reacting<br>img/projecting.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Projecting and reacting</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Progetti Medical<br>img/medical.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Progetti Medical</span>
+            <span class="project-card-year">2023</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Beyond the protein transition<br>img/protein.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Beyond the protein transition</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECULATIVE & UX/UI -->
+  <section class="projects-section" style="background: var(--bg);">
+    <div class="projects-section-inner">
+      <p class="section-title">Speculative & UX/UI Design</p>
+      <div class="projects-grid">
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Pianta.to<br>img/pianta.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Pianta.to</span>
+            <span class="project-card-year">2024</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">404 Agency<br>img/404.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">404 Agency</span>
+            <span class="project-card-year">2024</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Hale<br>img/hale.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Hale</span>
+            <span class="project-card-year">2024</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT & EXHIBITION -->
+  <section class="projects-section">
+    <div class="projects-section-inner">
+      <p class="section-title">Product & Exhibition Design</p>
+      <div class="projects-grid">
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Tisbe chair<br>img/tisbe.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Tisbe chair</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Leaves water system<br>img/leaves.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Leaves water system</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Overlighting<br>img/overlighting.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Overlighting</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+        <a href="#" class="project-card">
+          <div class="project-card-img-wrap">
+            <div class="project-card-img-placeholder">Il mercato delle storie<br>img/mercato.jpg</div>
+          </div>
+          <div class="project-card-bottom">
+            <span class="project-card-name">Il mercato delle storie</span>
+            <span class="project-card-year">2022</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-left">
+    <p>Email: federicocovolan60@gmail.com</p>
+    <p>Copyright © Federico Covolan. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="mailto:federicocovolan60@gmail.com">Mail</a>
+  </div>
+  <div class="footer-right">
+    <a href="#">Privacy & Cookie Policy</a>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+</script>
+</body>
+</html>

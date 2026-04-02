@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Federico Covolan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F3EEFF;
+      --bg2: #F9F9F9;
+      --purple: #9C31F6;
+      --purple-light: #EDE0FF;
+      --purple-section: #E8D5FF;
+      --text: #181818;
+      --text-muted: #555;
+      --nav-bg: rgba(243, 238, 255, 0.85);
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Archivo', sans-serif; background: var(--bg2); color: var(--text); overflow-x: hidden; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 48px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(156,49,246,0.08);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+    .logo-mark { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: -1px; }
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3; }
+
+    .nav-links { display: flex; gap: 48px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 400; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--purple); }
+
+    .nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--purple); padding-bottom: 2px; transition: color 0.2s; }
+    .nav-cta a:hover { color: var(--purple); }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s; }
+
+    /* PAGE CONTENT */
+    .page-wrap { padding-top: 80px; }
+
+    /* HERO SECTION */
+    .about-hero {
+      padding: 80px 48px 60px;
+      background: var(--bg2);
+    }
+
+    .about-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .about-text-col {}
+
+    .about-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(36px, 4vw, 52px);
+      letter-spacing: -1.5px;
+      line-height: 1.05;
+      margin-bottom: 8px;
+    }
+
+    .about-tagline {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .about-body p {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .about-image-col {}
+
+    .about-image-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, rgba(156,49,246,0.1), rgba(156,49,246,0.25));
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--purple);
+      font-size: 13px;
+      font-family: 'Space Grotesk', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .about-image-col img {
+      width: 100%;
+      border-radius: 4px;
+      filter: saturate(0.3) hue-rotate(230deg) brightness(0.9);
+      mix-blend-mode: multiply;
+    }
+
+    /* EDUCATION */
+    .education-section {
+      padding: 60px 48px;
+      background: var(--bg2);
+      border-top: 1px solid rgba(156,49,246,0.1);
+    }
+
+    .education-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    .education-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .education-list li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* FIELDS OF WORK */
+    .fields-section {
+      background: var(--purple-section);
+      padding: 80px 48px;
+    }
+
+    .fields-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .fields-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .fields-list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(16px, 2vw, 22px);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text);
+    }
+
+    .fields-list li::before {
+      content: '↳';
+      color: var(--purple);
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .fields-text p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .fields-cta {
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 2px solid var(--purple);
+      padding-bottom: 2px;
+      margin-top: 8px;
+      transition: all 0.2s;
+    }
+
+    .fields-cta:hover { color: var(--text); border-color: var(--text); }
+
+    /* PROJECT FEATURE */
+    .project-feature {
+      padding: 80px 48px;
+      background: var(--bg2);
+      border-top: 1px solid rgba(156,49,246,0.1);
+    }
+
+    .project-feature-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .project-text {}
+
+    .project-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: clamp(20px, 2.5vw, 28px);
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+    }
+
+    .project-text p {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .project-tags {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .project-tags li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .project-tags li::before {
+      content: '↳';
+      color: var(--purple);
+    }
+
+    .project-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .project-img-placeholder {
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, rgba(156,49,246,0.08), rgba(156,49,246,0.18));
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--purple);
+      font-family: 'Space Grotesk', sans-serif;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .project-img-placeholder.tall { grid-row: span 2; aspect-ratio: auto; min-height: 300px; }
+
+    .project-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--purple-light);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .footer-links { display: flex; gap: 32px; }
+    .footer-links a { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--purple); }
+
+    .footer-right a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(12px); padding: 24px; gap: 20px; border-bottom: 1px solid rgba(156,49,246,0.1); }
+      .hamburger { display: flex; }
+
+      .about-hero { padding: 40px 24px; }
+      .about-hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-image-col { order: -1; }
+      .about-image-placeholder { aspect-ratio: 4/3; }
+
+      .education-section { padding: 40px 24px; }
+
+      .fields-section { padding: 48px 24px; }
+      .fields-inner { grid-template-columns: 1fr; gap: 40px; }
+
+      .project-feature { padding: 48px 24px; }
+      .project-feature-inner { grid-template-columns: 1fr; gap: 40px; }
+      .project-images { grid-template-columns: 1fr 1fr; }
+
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .footer-links { flex-wrap: wrap; gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="logo-mark">FC</span>
+    <span class="logo-text">Federico<br>Covolan</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html" class="active">About me</a></li>
+    <li><a href="projects.html">Projects</a></li>
+  </ul>
+  <div class="nav-cta" id="navCta">
+    <a href="mailto:federicocovolan60@gmail.com">Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-wrap">
+
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-text-col">
+        <h1 class="about-name">FEDERICO COVOLAN</h1>
+        <p class="about-tagline">Systemic and strategic designer</p>
+        <div class="about-body">
+          <p>Federico Covolan is a Systemic and Strategic Designer with a multidisciplinary background shaped by my studies at the Politecnico di Torino, the Oslo School of Architecture (AHO) and the Università di Ferrara.</p>
+          <p>My practice is rooted in the ability to visualize, prototype, and transform complexity into circular opportunities through strategic research and system thinking. As a Duckweed enthusiast and the founder of ProLemna, I am dedicated to shaping the future of sustainable agrifood systems, implementing Duckweed potential to revolutionize the supply chain through systemic innovation.</p>
+          <p>I am driven by a passion for continuous learning and discovery, whether I am experimenting with new ways to visualize complexity or exploring the outdoors. Outside of design, I find my balance in nature: hiking, walking, and staying active at the gym or diving into a good book. I am always eager to apply systemic tools to create meaningful, lasting impact.</p>
+        </div>
+      </div>
+      <div class="about-image-col">
+        <!-- Replace with your image: <img src="img/about.jpg" alt="Federico Covolan"> -->
+        <div class="about-image-placeholder">Add your photo here<br><br>Replace with:<br>&lt;img src="img/about.jpg"&gt;</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="education-section">
+    <div class="education-inner">
+      <p class="section-label">Education</p>
+      <ul class="education-list">
+        <li>MA Systemic Design, Politecnico di Torino, Cum Laude and web publication</li>
+        <li>MA Erasmus in Systems Oriented Design, Oslo School of Architecture and Design</li>
+        <li>BA Product and Industrial Design, Università di Ferrara, 110</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="fields-section">
+    <div class="fields-inner">
+      <div class="fields-list-col">
+        <p class="section-label">Fields of Work</p>
+        <ul class="fields-list">
+          <li>Systemic Design</li>
+          <li>Speculative Design</li>
+          <li>Strategic Design</li>
+          <li>Product Design</li>
+          <li>Exhibition Design</li>
+        </ul>
+      </div>
+      <div class="fields-text">
+        <p>Driven by a passion for continuous learning and discovery, my work has evolved into a deeply multidisciplinary practice focused on navigating the layers of contemporary complexity. I tackle innovation through a Systemic lens, treating every challenge not as a standalone product, but as a living, breathing ecosystem.</p>
+        <p>My expertise spans across Product design, Service orchestration, and Speculative futures, with a core focus on making invisible connections both visible and functional. Drawing from my background at Politecnico di Torino and AHO Oslo, I specialize in translating complex socio-technical data into clear, strategic narratives.</p>
+        <p>My goal is to bridge the gap between high-level strategy and the modular, practical execution required to scale a vision.</p>
+        <p>I am committed to a design practice that is critical, sustainable, and accessible. Whether I am analyzing deep-tech research, papers, or patents, I strive to turn technical insights into human-centered experiences.</p>
+        <a href="projects.html" class="fields-cta">Look at the project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-feature">
+    <div class="project-feature-inner">
+      <div class="project-text">
+        <h2 class="project-title">PRO LEMNA STARTUP</h2>
+        <p>Starting as a bachelor thesis project, ProLemna won the Range Rover Leadership Academy in 2024 and began its journey as a startup and it was subsequently incubated at 2i3T. As founder and Business Developer, I translate the systemic approach into operational management, coordinating the strategic vision to ensure the circularity of the model and taking care of business development through business plans and financial analysis.</p>
+        <p>I also manage stakeholder relations, handling relationships with investors and partners through pitching, and oversee project management, guiding a multidisciplinary team towards market entry.</p>
+        <a href="projects.html" class="fields-cta">Look at the project</a>
+        <ul class="project-tags" style="margin-top: 32px;">
+          <li>Leadership</li>
+          <li>Business Development</li>
+          <li>Stakeholder Management</li>
+        </ul>
+      </div>
+      <div class="project-images">
+        <!-- Replace with your images -->
+        <div class="project-img-placeholder tall">Add project image<br>img/prolemna-1.jpg</div>
+        <div class="project-img-placeholder">Add project image<br>img/prolemna-2.jpg</div>
+        <div class="project-img-placeholder">Add project image<br>img/prolemna-3.jpg</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-left">
+    <p>Email: federicocovolan60@gmail.com</p>
+    <p>Copyright © Federico Covolan. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    <a href="mailto:federicocovolan60@gmail.com">Mail</a>
+  </div>
+  <div class="footer-right">
+    <a href="#">Privacy & Cookie Policy</a>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
+</script>
+</body>
+</html>
