@@ -50,6 +50,11 @@
       gap: 10px;
       text-decoration: none;
       color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .nav-logo:hover {
+      color: var(--purple);
     }
 
     .logo-mark {
@@ -73,9 +78,9 @@
       display: flex;
       gap: 48px;
       list-style: none;
-      margin-left: auto;
-      margin-right: 48px;
-      transform: translateX(60px);
+      position: absolute;
+      left: 55%;
+      transform: translateX(-50%);
     }
 
     .nav-links a {
@@ -97,16 +102,14 @@
       letter-spacing: 0.08em;
       color: var(--text);
       text-decoration: none;
-      padding: 8px 16px;
-      border: 1.5px solid var(--text);
-      border-radius: 2px;
+      border-bottom: 2px solid var(--text);
+      padding-bottom: 2px;
       transition: all 0.2s;
     }
 
     .nav-cta a:hover {
-      background-color: #9C31F6;
-      border-color: #9C31F6;
-      color: #fff;
+      color: var(--purple);
+      border-color: var(--purple);
     }
 
     /* HAMBURGER */
@@ -240,7 +243,7 @@
       font-weight: 300;
       line-height: 1.7;
       color: var(--text-muted);
-      max-width: 700px;
+      max-width: 100%;
     }
 
     /* FOOTER */
@@ -333,7 +336,7 @@
     <li><a href="about.html">About me</a></li>
     <li><a href="projects.html">Projects</a></li>
   </ul>
-  <div class="nav-cta" id="navCta">
+  <div class="nav-cta" id="navCta" style="margin-left: auto;">
     <a href="/cdn-cgi/l/email-protection#b4d2d1d0d1c6ddd7dbd7dbc2dbd8d5da8284f4d3d9d5ddd89ad7dbd9">Get in touch</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -366,7 +369,7 @@
 
 <footer>
   <div class="footer-left">
-    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="60060504051209030f030f160f0c010e565020070d01090c4e030f0d">[email&#160;protected]</a></p>
+    <p>Email: federicocovolan60@gmail.com</p>
     <p>Copyright © Federico Covolan. All rights reserved.</p>
   </div>
   <div class="footer-links">
