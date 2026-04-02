@@ -26,7 +26,7 @@
     /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: flex-start;
       padding: 20px 48px;
       background: var(--nav-bg);
       backdrop-filter: blur(12px);
@@ -34,16 +34,17 @@
       border-bottom: 1px solid rgba(156,49,246,0.08);
     }
 
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-    .logo-mark { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 22px; line-height: 1; letter-spacing: -1px; }
-    .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.3; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); transition: color 0.2s; }
+    .nav-logo:hover { color: var(--purple); }
+    .logo-mark { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 26px; line-height: 1; letter-spacing: -1px; }
+    .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; }
 
-    .nav-links { display: flex; gap: 48px; list-style: none; }
+    .nav-links { display: flex; gap: 48px; list-style: none; position: absolute; left: 55%; transform: translateX(-50%); }
     .nav-links a { font-size: 14px; color: var(--text); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--purple); }
 
-    .nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--purple); padding-bottom: 2px; transition: color 0.2s; }
-    .nav-cta a:hover { color: var(--purple); }
+    .nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; transition: all 0.2s; }
+    .nav-cta a:hover { color: var(--purple); border-color: var(--purple); }
 
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); }
@@ -175,7 +176,7 @@
 
     .project-card-bottom {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: baseline;
     }
 
@@ -196,12 +197,12 @@
     /* FOOTER */
     footer {
       background: var(--purple-light);
-      padding: 40px 48px;
+      padding: 20px 48px;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 12px;
     }
 
     .footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
@@ -227,7 +228,7 @@
       .projects-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
       .project-card.wide { grid-column: span 2; }
 
-      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
       .footer-links { flex-wrap: wrap; gap: 20px; }
     }
 
@@ -248,8 +249,8 @@
     <li><a href="about.html">About me</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
   </ul>
-  <div class="nav-cta" id="navCta">
-    <a href="mailto:federicocovolan60@gmail.com">Get in touch</a>
+  <div class="nav-cta" id="navCta" style="margin-left: auto;">
+    <a href="/cdn-cgi/l/email-protection#6503000100170c060a060a130a09040b5355250208040c094b060a08">Get in touch</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -424,14 +425,4 @@
     <a href="mailto:federicocovolan60@gmail.com">Mail</a>
   </div>
   <div class="footer-right">
-    <a href="#">Privacy & Cookie Policy</a>
-  </div>
-</footer>
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => { navLinks.classList.toggle('open'); });
-</script>
-</body>
-</html>
+    <a href="#">Pr
