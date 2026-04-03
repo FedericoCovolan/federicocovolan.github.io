@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projecting and Reacting: Oslo — Federico Covolan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; }
 .nav-links { display: flex; gap: 48px; list-style: none; position: absolute; left: 55%; transform: translateX(-50%); }
 .nav-links a { font-size: 14px; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--purple); }
+.nav-links a:hover { color: var(--purple); }
 .nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; transition: all 0.2s; }
 .nav-cta a:hover { color: var(--purple); border-color: var(--purple); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; margin-left: auto; }
@@ -31,29 +31,38 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .page-wrap { padding-top: 80px; }
 .project-hero { padding: 80px 48px 60px; background: var(--bg); border-bottom: 1px solid rgba(156,49,246,0.1); }
 .project-hero-inner { max-width: 1200px; margin: 0 auto; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; margin-bottom: 40px; transition: all 0.2s; }
+.back-link:hover { color: var(--purple); border-color: var(--purple); }
 .project-category { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--purple); margin-bottom: 16px; }
 .project-title { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 80px); letter-spacing: -2px; line-height: 0.95; color: var(--text); margin-bottom: 16px; }
-.project-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: clamp(14px, 1.5vw, 18px); font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 48px; }
-.project-hero-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
-.project-meta { display: flex; flex-direction: column; gap: 24px; }
+.project-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: clamp(13px, 1.5vw, 16px); font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 48px; }
+.project-hero-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
+.project-meta { display: flex; flex-direction: column; gap: 20px; }
 .meta-group { display: flex; flex-direction: column; gap: 4px; }
 .meta-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); }
 .meta-value { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
 .project-intro-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; }
-.project-images-hero { width: 100%; max-height: 600px; object-fit: cover; border-radius: 4px; margin-top: 60px; max-width: 1200px; display: block; margin-left: auto; margin-right: auto; }
+.img-placeholder { width: 100%; background: linear-gradient(135deg, rgba(156,49,246,0.08), rgba(156,49,246,0.18)); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--purple); text-align: center; padding: 20px; aspect-ratio: 16/9; }
+.img-placeholder.tall { aspect-ratio: 4/3; }
+.img-placeholder.square { aspect-ratio: 1/1; }
 .project-section { padding: 60px 48px; border-top: 1px solid rgba(156,49,246,0.1); }
 .project-section.purple-bg { background: var(--purple-section); }
+.project-section.dark-bg { background: var(--bg); }
 .project-section-inner { max-width: 1200px; margin: 0 auto; }
 .section-label { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 28px; }
 .section-label.purple { color: var(--purple); }
-.section-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; max-width: 800px; }
+.section-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; max-width: 860px; }
+.section-text p strong { font-weight: 500; color: var(--text); }
 .img-full { width: 100%; border-radius: 4px; display: block; }
 .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
 .img-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
-.img-grid-2 img, .img-grid-3 img { width: 100%; border-radius: 4px; object-fit: cover; aspect-ratio: 4/3; }
+.img-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+.img-grid-2 .img-placeholder, .img-grid-3 .img-placeholder, .img-grid-4 .img-placeholder { aspect-ratio: 4/3; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; margin-bottom: 40px; transition: all 0.2s; }
-.back-link:hover { color: var(--purple); border-color: var(--purple); }
+.two-col-wide { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
+.meta-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.meta-table td { padding: 8px 12px; font-size: 13px; font-weight: 300; color: var(--text-muted); border-bottom: 1px solid rgba(156,49,246,0.1); }
+.meta-table td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); width: 120px; }
 footer { background: var(--purple-light); padding: 20px 48px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 .footer-links { display: flex; gap: 32px; }
@@ -68,8 +77,8 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
   .project-hero { padding: 40px 24px; }
   .project-hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .project-section { padding: 40px 24px; }
-  .two-col { grid-template-columns: 1fr; gap: 32px; }
-  .img-grid-2, .img-grid-3 { grid-template-columns: 1fr 1fr; }
+  .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 32px; }
+  .img-grid-2, .img-grid-3, .img-grid-4 { grid-template-columns: 1fr 1fr; }
   footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
   .footer-links { flex-wrap: wrap; gap: 20px; }
 }
@@ -83,7 +92,7 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="about.html">About me</a></li>
-    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="projects.html">Projects</a></li>
   </ul>
   <div class="nav-cta" id="navCta" style="margin-left: auto;">
     <a href="mailto:federicocovolan60@gmail.com">Get in touch</a>
@@ -94,64 +103,73 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
 </nav>
 <div class="page-wrap">
 
-  <section class="project-hero">
-    <div class="project-hero-inner">
-      <a href="projects.html" class="back-link">← Back to Projects</a>
-      <p class="project-category">Systemic Design · 2024</p>
-      <h1 class="project-title">PROJECTING AND<br>REACTING: OSLO</h1>
-      <p class="project-subtitle">Uncovering how our perceptions of Oslo shape its urban development</p>
-      <div class="project-hero-grid">
-        <div class="project-meta">
-          <div class="meta-group">
-            <span class="meta-label">Students</span>
-            <span class="meta-value">Benjamin Romm, Bjørn Penk<br>Brage Hofgaard, Federico Covolan<br>Kamil Benon, Lili Bruckmeier<br>Magnus Winther</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Coordinating Teachers</span>
-            <span class="meta-value">Andreas Wettre<br>Jonathan Romm<br>Abel Ben Aleck Crawford</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Project Length</span>
-            <span class="meta-value">5 months</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">My Role</span>
-            <span class="meta-value">Sketching, systemic design research, sustainability strategy, development of strategic scenarios, gigamap</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Project Place</span>
-            <span class="meta-value">The Oslo School of Architecture and Design (AHO) · 2024</span>
-          </div>
-        </div>
-        <div class="project-intro-text">
-          <p>"Projecting & Reacting: Oslo" was developed during the 2024 Systems-Oriented Design (SOD) semester at AHO to investigate the future of urban diversity and the evolution of city habitats.</p>
-          <p>Utilizing a Rich Design Space methodology, the project leveraged Miro to collaboratively synthesize complex research into a comprehensive Gigamap that anchored the entire design process.</p>
-          <p>Central to this systemic inquiry is an Actors Map built from 15 interviews with city inhabitants, which identified four primary problem areas and the interconnected challenges faced by urban stakeholders.</p>
-        </div>
+<section class="project-hero">
+  <div class="project-hero-inner">
+    <a href="projects.html" class="back-link">← Back to Projects</a>
+    <p class="project-category">Systemic Design · 2024</p>
+    <h1 class="project-title">PROJECTING AND REACTING: OSLO</h1>
+    <p class="project-subtitle">Uncovering how our perceptions of Oslo shape its urban development</p>
+    <div class="project-hero-grid">
+      <div class="project-meta">
+        <div class="meta-group"><span class="meta-label">Students</span><span class="meta-value">Benjamin Romm · Bjørn Penk<br>Brage Hofgaard · Federico Covolan<br>Kamil Benon · Lili Bruckmeier<br>Magnus Winther</span></div>
+        <div class="meta-group"><span class="meta-label">Coordinating Teachers</span><span class="meta-value">Andreas Wettre<br>Jonathan Romm<br>Abel Ben Aleck Crawford</span></div>
+        <div class="meta-group"><span class="meta-label">Project Length</span><span class="meta-value">5 months</span></div>
+        <div class="meta-group"><span class="meta-label">My Role</span><span class="meta-value">Sketching, systemic design research, sustainability strategy, development of strategic scenarios, gigamap</span></div>
+        <div class="meta-group"><span class="meta-label">Project Place</span><span class="meta-value">The Oslo School of Architecture and Design (AHO) · 2024</span></div>
       </div>
-      <img src="img/project_oslo.png" alt="Projecting and Reacting Oslo" class="project-images-hero">
+      <div class="project-intro-text">
+        <p>"Projecting & Reacting: Oslo" was developed during the 2024 Systems-Oriented Design (SOD) semester at the Oslo School of Architecture & Design (AHO) to investigate the future of urban diversity and the evolution of city habitats.</p>
+        <p>Utilizing a Rich Design Space methodology, the project leveraged Miro to collaboratively synthesize complex research into a comprehensive Gigamap that anchored the entire design process.</p>
+        <p>Central to this systemic inquiry is an Actors Map built from 15 interviews with city inhabitants, which identified four primary problem areas and the interconnected challenges faced by urban stakeholders. These dynamics were analyzed through a Perception framework, integrating Attention, Speculation, Memories, and Reaction, to operationalize the concept of "Proactive Grief."</p>
+      </div>
     </div>
-  </section>
+    <div class="img-grid-2" style="margin-top:48px;">
+      <div class="img-placeholder">Add image — Gigamap overview</div>
+      <div class="img-placeholder">Add image — workshop session at AHO</div>
+    </div>
+  </div>
+</section>
 
-  <section class="project-section">
-    <div class="project-section-inner">
-      <p class="section-label">Push & Pull Drivers</p>
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">Perception Analysis</p>
+    <div class="two-col">
       <div class="section-text">
-        <p>By mapping Oslo's systemic "Push & Pull" drivers, the research distinguished between attractors such as Queer Spaces and Decarbonization and repellers like Oil Dependence and Hostile Habitats.</p>
-        <p>This analysis was refined through a feedback loop system that transformed blurry future speculations into a strategic Portfolio of Interventions, eventually culminating in the "Phase to Phase" newspaper deliverable and long-term systemic proposals like the "Tivoli Oslo" intervention.</p>
+        <p>The perception framework integrates six elements: <strong>Attention</strong> (out of the total present system state – what are we capturing), <strong>Speculation & Imagination</strong> (from what we notice in the present, we predict how the system is evolving), <strong>Memories</strong> (we store our experience of past systems as memories that inform our attention), <strong>Grief</strong> (both in past and future we react in the present with sorrow over what is and might be lost), <strong>Reaction</strong> (sensing all system states, we are repelled by reactions to desire for things to be different), <strong>Action</strong> (acting into emerging system states).</p>
       </div>
+      <div class="img-placeholder tall">Add Perception Analysis diagram — Projection and Reaction cone model</div>
     </div>
-  </section>
+    <div class="img-grid-2" style="margin-top:32px;">
+      <div class="img-placeholder">Add Differentiation on Drivers Seen Oslo — attractors and repellers matrix</div>
+      <div class="img-placeholder">Add Dipole Drivers diagram</div>
+    </div>
+  </div>
+</section>
 
-  <section class="project-section purple-bg">
-    <div class="project-section-inner">
-      <p class="section-label purple">The Gigamap</p>
-      <div class="section-text">
-        <p>The project employs a Gigamapping methodology to navigate the complexity of urban ecosystems. By analyzing the interconnected challenges faced by stakeholders, we identified four core problem areas that served as the foundation for speculative future scenarios.</p>
-        <p>The Gigamap serves as a strategic tool to guide a Portfolio of Interventions, ensuring informed decision-making for both mid-term and long-term future horizons.</p>
-      </div>
+<section class="project-section purple-bg">
+  <div class="project-section-inner">
+    <p class="section-label purple">Push & Pull Drivers of Oslo</p>
+    <div class="section-text">
+      <p>By mapping Oslo's systemic "Push & Pull" drivers, the research distinguished between <strong>attractors</strong> such as Queer Spaces, Decarbonization, City Branding & Placemaking, Scaling Up, and "Green City"; and <strong>repellers</strong> like Oil Dependence, Split East vs. West Oslo, Hostile Habitats, Growing Demand, and Rising Complaint Competency.</p>
+      <p>This analysis was refined through a feedback loop system that transformed blurry future speculations into a strategic Portfolio of Interventions, eventually culminating in the "Phase to Phase" newspaper deliverable and long-term systemic proposals like the "Tivoli Oslo" intervention.</p>
     </div>
-  </section>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">The Gigamap</p>
+    <div class="section-text">
+      <p>The project employs a Gigamapping methodology to navigate the complexity of urban ecosystems, centered around a comprehensive Actors Map derived from primary interviews with city inhabitants. By analyzing the interconnected challenges faced by these stakeholders, we identified four core problem areas that served as the foundation for speculative future scenarios.</p>
+      <p>While the future is presented as "blurry" — reflecting its timeless and imaginary nature — the implementation of a feedback loop system allows for a clearer distinction between attractive and repulsive outcomes. This process, governed by broader societal mental models and goal drivers, enables the transition from speculation to conscious action. Ultimately, the Gigamap serves as a strategic tool to guide a Portfolio of Interventions, ensuring informed decision-making for both mid-term and long-term future horizons.</p>
+    </div>
+    <div class="img-placeholder" style="margin-top:32px; aspect-ratio:16/7;">Add full Gigamap — Projecting & Reacting Oslo complete system map</div>
+    <div class="img-grid-2" style="margin-top:16px;">
+      <div class="img-placeholder">Add workshop photo — team working on gigamap</div>
+      <div class="img-placeholder">Add workshop photo — presenting to wall</div>
+    </div>
+  </div>
+</section>
 
 </div>
 <footer>

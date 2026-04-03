@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Leaves Water System — Federico Covolan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; }
 .nav-links { display: flex; gap: 48px; list-style: none; position: absolute; left: 55%; transform: translateX(-50%); }
 .nav-links a { font-size: 14px; color: var(--text); text-decoration: none; transition: color 0.2s; }
-.nav-links a:hover, .nav-links a.active { color: var(--purple); }
+.nav-links a:hover { color: var(--purple); }
 .nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; transition: all 0.2s; }
 .nav-cta a:hover { color: var(--purple); border-color: var(--purple); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; margin-left: auto; }
@@ -31,29 +31,38 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .page-wrap { padding-top: 80px; }
 .project-hero { padding: 80px 48px 60px; background: var(--bg); border-bottom: 1px solid rgba(156,49,246,0.1); }
 .project-hero-inner { max-width: 1200px; margin: 0 auto; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; margin-bottom: 40px; transition: all 0.2s; }
+.back-link:hover { color: var(--purple); border-color: var(--purple); }
 .project-category { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--purple); margin-bottom: 16px; }
 .project-title { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 80px); letter-spacing: -2px; line-height: 0.95; color: var(--text); margin-bottom: 16px; }
-.project-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: clamp(14px, 1.5vw, 18px); font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 48px; }
-.project-hero-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
-.project-meta { display: flex; flex-direction: column; gap: 24px; }
+.project-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: clamp(13px, 1.5vw, 16px); font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 48px; }
+.project-hero-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
+.project-meta { display: flex; flex-direction: column; gap: 20px; }
 .meta-group { display: flex; flex-direction: column; gap: 4px; }
 .meta-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); }
 .meta-value { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
 .project-intro-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; }
-.project-images-hero { width: 100%; max-height: 600px; object-fit: cover; border-radius: 4px; margin-top: 60px; max-width: 1200px; display: block; margin-left: auto; margin-right: auto; }
+.img-placeholder { width: 100%; background: linear-gradient(135deg, rgba(156,49,246,0.08), rgba(156,49,246,0.18)); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--purple); text-align: center; padding: 20px; aspect-ratio: 16/9; }
+.img-placeholder.tall { aspect-ratio: 4/3; }
+.img-placeholder.square { aspect-ratio: 1/1; }
 .project-section { padding: 60px 48px; border-top: 1px solid rgba(156,49,246,0.1); }
 .project-section.purple-bg { background: var(--purple-section); }
+.project-section.dark-bg { background: var(--bg); }
 .project-section-inner { max-width: 1200px; margin: 0 auto; }
 .section-label { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 28px; }
 .section-label.purple { color: var(--purple); }
-.section-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; max-width: 800px; }
+.section-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; max-width: 860px; }
+.section-text p strong { font-weight: 500; color: var(--text); }
 .img-full { width: 100%; border-radius: 4px; display: block; }
 .img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
 .img-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
-.img-grid-2 img, .img-grid-3 img { width: 100%; border-radius: 4px; object-fit: cover; aspect-ratio: 4/3; }
+.img-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+.img-grid-2 .img-placeholder, .img-grid-3 .img-placeholder, .img-grid-4 .img-placeholder { aspect-ratio: 4/3; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; margin-bottom: 40px; transition: all 0.2s; }
-.back-link:hover { color: var(--purple); border-color: var(--purple); }
+.two-col-wide { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: start; }
+.meta-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.meta-table td { padding: 8px 12px; font-size: 13px; font-weight: 300; color: var(--text-muted); border-bottom: 1px solid rgba(156,49,246,0.1); }
+.meta-table td:first-child { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--purple); width: 120px; }
 footer { background: var(--purple-light); padding: 20px 48px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
 .footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 .footer-links { display: flex; gap: 32px; }
@@ -68,8 +77,8 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
   .project-hero { padding: 40px 24px; }
   .project-hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .project-section { padding: 40px 24px; }
-  .two-col { grid-template-columns: 1fr; gap: 32px; }
-  .img-grid-2, .img-grid-3 { grid-template-columns: 1fr 1fr; }
+  .two-col, .two-col-wide { grid-template-columns: 1fr; gap: 32px; }
+  .img-grid-2, .img-grid-3, .img-grid-4 { grid-template-columns: 1fr 1fr; }
   footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
   .footer-links { flex-wrap: wrap; gap: 20px; }
 }
@@ -83,7 +92,7 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="about.html">About me</a></li>
-    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="projects.html">Projects</a></li>
   </ul>
   <div class="nav-cta" id="navCta" style="margin-left: auto;">
     <a href="mailto:federicocovolan60@gmail.com">Get in touch</a>
@@ -94,70 +103,110 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
 </nav>
 <div class="page-wrap">
 
-  <section class="project-hero">
-    <div class="project-hero-inner">
-      <a href="projects.html" class="back-link">← Back to Projects</a>
-      <p class="project-category">Product Design · 2022</p>
-      <h1 class="project-title">LEAVES WATER<br>SYSTEM</h1>
-      <p class="project-subtitle">Fence and Rainwater Collector</p>
-      <div class="project-hero-grid">
-        <div class="project-meta">
-          <div class="meta-group">
-            <span class="meta-label">Students</span>
-            <span class="meta-value">Agnese Baldoni<br>Federico Covolan</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Coordinating Teachers</span>
-            <span class="meta-value">Giuseppe Mincolelli<br>Lucia Botti<br>Michele Marchi</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Project Length</span>
-            <span class="meta-value">5 months</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">My Role</span>
-            <span class="meta-value">Research and analysis, concept design, modelling, rendering, technical drawing, ergonomic aspects, prototyping</span>
-          </div>
-          <div class="meta-group">
-            <span class="meta-label">Project Place</span>
-            <span class="meta-value">Università di Ferrara<br>Villa Smeraldi – Parco di Bentivoglio</span>
-          </div>
-        </div>
-        <div class="project-intro-text">
-          <p>Leaves Water System is the project of a modular and multifunctional structure for outdoors, with a shape linked to the natural environment in which it was conceived, the park of the province of Bologna, at Villa Smeraldi.</p>
-          <p>The fence, in addition to having the function of delimitation, has a mechanism for watering the plants that grow around it. Rainwater is collected through the basin placed as a cover of the agricultural equipment, it is collected in a water barrel and then channeled into a pipe along the perimeter of the fence. Through valves the water is distributed to the plants which receive the water they need to grow.</p>
-          <p>The peculiarity of the structure is that, since it does not reach a high weight, it does not need bases or plinths in the ground but the structure is supported by a steel base on which the plant pots are placed, anchored to the ground through some pickets, which together with the weight of the base, they balance the column and allow it not to sink into the ground.</p>
-        </div>
+<section class="project-hero">
+  <div class="project-hero-inner">
+    <a href="projects.html" class="back-link">← Back to Projects</a>
+    <p class="project-category">Product Design · 2022</p>
+    <h1 class="project-title">LEAVES WATER SYSTEM</h1>
+    <p class="project-subtitle">Fence and Rainwater Collector</p>
+    <div class="project-hero-grid">
+      <div class="project-meta">
+        <div class="meta-group"><span class="meta-label">Students</span><span class="meta-value">Agnese Baldoni<br>Federico Covolan</span></div>
+        <div class="meta-group"><span class="meta-label">Coordinating Teachers</span><span class="meta-value">Giuseppe Mincolelli<br>Lucia Botti<br>Michele Marchi</span></div>
+        <div class="meta-group"><span class="meta-label">Project Length</span><span class="meta-value">5 months</span></div>
+        <div class="meta-group"><span class="meta-label">My Role</span><span class="meta-value">Research and analysis, concept design, modelling, rendering, technical drawing, ergonomic aspects, prototyping</span></div>
+        <div class="meta-group"><span class="meta-label">Project Place</span><span class="meta-value">Università di Ferrara<br>Villa Smeraldi – Parco di Bentivoglio, 2022</span></div>
       </div>
-      <img src="img/project_leaves.png" alt="Leaves Water System" class="project-images-hero">
+      <div class="project-intro-text">
+        <p>Leaves Water System is the project of a modular and multifunctional structure for outdoors, with a shape linked to the natural environment in which it was conceived, the park of the province of Bologna, at Villa Smeraldi.</p>
+        <p>The fence, in addition to having the function of delimitation, has a mechanism for watering the plants that grow around it. Rainwater is collected through the basin placed as a cover of the agricultural equipment, it is collected in a water barrel and then channeled into a pipe along the perimeter of the fence. Through valves the water is distributed to the plants which receive the water they need to grow.</p>
+        <p>The peculiarity of the structure is that, since it does not reach a high weight, it does not need bases or plinths in the ground but the structure is supported by a steel base on which the plant pots are placed, anchored to the ground through some pickets, which together with the weight of the base, they balance the column and allow it not to sink into the ground.</p>
+      </div>
     </div>
-  </section>
+    <div style="margin-top:48px;">
+      <div class="img-placeholder" style="aspect-ratio:16/7;">Add main hero image here — rendering of Leaves Water System in the park</div>
+    </div>
+  </div>
+</section>
 
-  <section class="project-section">
-    <div class="project-section-inner">
-      <p class="section-label">Park System Layout</p>
-      <div class="two-col">
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">Park System Layout</p>
+    <div class="two-col">
+      <div class="section-text">
+        <p>After some inspections we analyzed what were the critical points of the park and the area in which we concentrated is that of the absence and state of abandonment of the agricultural equipment of the Museum of Rural Civilization present in the Villa of the park.</p>
+        <p>In the park there are fencing systems from the 80s made up of stakes planted in the ground and plastic strings, these fences are dangerous for children who can access the agricultural equipment, they do not protect the equipment from free animals in the park and do not intrigue the visitors.</p>
+        <p>The intent is therefore to protect the equipment and at the same time enhance it, give a new life to these objects that carry the history of the park with them.</p>
+      </div>
+      <div class="img-placeholder tall">Add park inspection photo here</div>
+    </div>
+    <div class="img-grid-2" style="margin-top:40px;">
+      <div class="img-placeholder">Add rendering 1 — top view of the structure</div>
+      <div class="img-placeholder">Add rendering 2 — close-up of the fence</div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section dark-bg">
+  <div class="project-section-inner">
+    <p class="section-label">Divergence Maps</p>
+    <div class="section-text">
+      <p>In a first phase it diverges to produce new ideas for action in the second phase, in which it diverges to arrive at some concepts realized on the needs of users and their needs, utilizing the Human Centered Design methods.</p>
+    </div>
+    <div class="img-grid-2" style="margin-top:32px;">
+      <div class="img-placeholder">Add divergence map 1</div>
+      <div class="img-placeholder">Add divergence map 2</div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">Construction Details</p>
+    <div class="img-grid-3">
+      <div class="img-placeholder">Interlocking lower octagonal part</div>
+      <div class="img-placeholder">Interlocking tubular base containing PVC pipe</div>
+      <div class="img-placeholder">Base contact joint with supporting tubular</div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section purple-bg">
+  <div class="project-section-inner">
+    <div class="two-col">
+      <div>
+        <p class="section-label purple">Exploded View</p>
+        <div class="img-placeholder tall">Add exploded view drawing here</div>
+      </div>
+      <div>
+        <p class="section-label purple">Ergonomic Aspects</p>
         <div class="section-text">
-          <p>After some inspections we analyzed what were the critical points of the park and the area in which we concentrated is that of the absence and state of abandonment of the agricultural equipment of the Museum of Rural Civilization present in the Villa of the park.</p>
-          <p>In the park there are fencing systems from the 80s made up of stakes planted in the ground and plastic strings, these fences are dangerous for children who can access the agricultural equipment, they do not protect the equipment from free animals in the park and do not intrigue the visitors.</p>
-          <p>The intent is therefore to protect the equipment and at the same time enhance it, give a new life to these objects that carry the history of the park with them.</p>
+          <p><strong>Faucet Height</strong> — Ergonomic study of the correct height for the water control faucet, accessible to different user types.</p>
+          <p><strong>Control Unit Height</strong> — Analysis of the control unit positioning for optimal usability.</p>
         </div>
-        <div>
-          <img src="img/project_leaves.png" alt="Park System" class="img-full">
-        </div>
+        <div class="img-placeholder" style="margin-top:16px;">Add ergonomic diagrams — faucet and control unit heights</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="project-section purple-bg">
-    <div class="project-section-inner">
-      <p class="section-label purple">Construction Details & Prototype</p>
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">Prototype</p>
+    <div class="two-col">
       <div class="section-text">
         <p>Various materials were used to create the model, such as clay to model the tubular, paper mache and cardboard to create the fence, a breathable canvas was used for the fabric and a more robust fabric for the central part which must hold rain water.</p>
         <p>The metal tubulars were made with an iron wire, finally the parts were colored using acrylic colors and a spray can. The structure is attached to the ground, made with a 2 cm thick section of wood, which was then dusted over a green powder similar to grass and soil.</p>
       </div>
+      <div class="img-grid-2" style="margin-top:0;">
+        <div class="img-placeholder square">Add prototype photo 1</div>
+        <div class="img-placeholder square">Add prototype photo 2</div>
+        <div class="img-placeholder square">Add prototype photo 3</div>
+        <div class="img-placeholder square">Add prototype photo 4</div>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
 </div>
 <footer>
