@@ -114,8 +114,6 @@
     .about-image-col img {
       width: 100%;
       border-radius: 4px;
-      filter: saturate(0.3) hue-rotate(230deg) brightness(0.9);
-      mix-blend-mode: multiply;
     }
 
     /* EDUCATION */
@@ -282,6 +280,8 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      align-items: stretch;
+      min-height: 500px;
     }
 
     .project-img-placeholder {
@@ -440,9 +440,11 @@
         </div>
       </div>
       <div class="project-images">
-        <img src="img/prolemna_1.png" alt="ProLemna 1" style="width:100%; border-radius:4px; grid-row: span 2; object-fit:cover;">
-        <img src="img/prolemna_2.png" alt="ProLemna 2" style="width:100%; border-radius:4px; object-fit:cover;">
-        <img src="img/prolemna_3.png" alt="ProLemna 3" style="width:100%; border-radius:4px; object-fit:cover;">
+        <img src="img/prolemna_1.png" alt="ProLemna 1" style="width:100%; height:100%; object-fit:cover; border-radius:4px;">
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <img src="img/prolemna_2.png" alt="ProLemna 2" style="width:100%; flex:1; object-fit:cover; border-radius:4px;">
+          <img src="img/prolemna_3.png" alt="ProLemna 3" style="width:100%; flex:1; object-fit:cover; border-radius:4px;">
+        </div>
       </div>
     </div>
   </section>
