@@ -252,6 +252,11 @@
       margin-bottom: 16px;
     }
 
+    .project-text .section-label {
+      color: var(--text);
+      font-weight: 700;
+    }
+
     .project-tags {
       list-style: none;
       display: flex;
@@ -364,7 +369,7 @@
     <li><a href="projects.html">Projects</a></li>
   </ul>
   <div class="nav-cta" id="navCta" style="margin-left: auto;">
-    <a href="/cdn-cgi/l/email-protection#0f696a6b6a7d666c606c607960636e61393f4f68626e6663216c6062">Get in touch</a>
+    <a href="get_in_touch.html">Get in touch</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -431,7 +436,7 @@
         <p>I also manage stakeholder relations, handling relationships with investors and partners through pitching, and oversee project management, guiding a multidisciplinary team towards market entry.</p>
         <a href="projects.html" class="fields-cta">Look at the project</a>
         <div style="margin-top: 40px;">
-          <p class="section-label" style="margin-bottom: 20px;">Fields of Work</p>
+          <p class="section-label">Fields of Work</p>
           <ul class="fields-list">
             <li>Leadership</li>
             <li>Business Development</li>
@@ -453,16 +458,24 @@
 
 <footer>
   <div class="footer-left">
-    <p>Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c4a4948495e454f434f435a43404d421a1c6c4b414d4540024f4341">[email&#160;protected]</a></p>
+    <p>Email: federicocovolan60@gmail.com</p>
     <p>Copyright © Federico Covolan. All rights reserved.</p>
   </div>
   <div class="footer-links">
     <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram</a>
     <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn</a>
-    <a href="/cdn-cgi/l/email-protection#cea8abaaabbca7ada1ada1b8a1a2afa0f8fe8ea9a3afa7a2e0ada1a3">Mail</a>
+    <a href="mailto:federicocovolan60@gmail.com">Mail</a>
   </div>
   <div class="footer-right">
-    <a href="#">Privacy & Cookie Policy</a>
+    <a href="privacy.html">Privacy &amp; Cookie Policy</a>
   </div>
 </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
