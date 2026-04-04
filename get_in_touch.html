@@ -9,15 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --bg: #F3EEFF; --bg2: #F9F9F9; --purple: #9C31F6;
-      --purple-light: #EDE0FF; --text: #181818; --text-muted: #555;
-      --nav-bg: rgba(243,238,255,0.85);
-    }
+    :root { --bg: #F3EEFF; --bg2: #F9F9F9; --purple: #9C31F6; --purple-light: #EDE0FF; --text: #181818; --text-muted: #555; --nav-bg: rgba(243,238,255,0.85); }
     html { scroll-behavior: smooth; }
     body { font-family: 'Archivo', sans-serif; background: var(--bg2); color: var(--text); overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
-
-    /* NAV */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: flex-start; padding: 20px 48px; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(156,49,246,0.08); }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); transition: color 0.2s; }
     .nav-logo:hover { color: var(--purple); }
@@ -30,83 +24,22 @@
     .nav-cta a:hover { color: var(--purple); border-color: var(--purple); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; margin-left: auto; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); }
-
-    /* MAIN */
     .page-wrap { flex: 1; padding-top: 80px; display: flex; align-items: center; }
-
-    .contact-section {
-      width: 100%;
-      padding: 80px 48px;
-      background: var(--bg2);
-    }
-
-    .contact-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .contact-intro {
-      font-family: 'Archivo', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-      line-height: 1.7;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: baseline;
-      gap: 20px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(156,49,246,0.1);
-    }
-
-    .contact-item:last-child {
-      border-bottom: none;
-    }
-
-    .contact-label {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--purple);
-      min-width: 120px;
-    }
-
-    .contact-value {
-      font-family: 'Archivo', sans-serif;
-      font-size: 15px;
-      font-weight: 300;
-      color: var(--text);
-      text-decoration: none;
-      transition: color 0.2s;
-      border-bottom: 2px solid transparent;
-      padding-bottom: 2px;
-    }
-
-    .contact-value:hover {
-      color: var(--purple);
-      border-color: var(--purple);
-    }
-
-    /* FOOTER */
+    .contact-section { width: 100%; padding: 80px 48px; }
+    .contact-inner { max-width: 1200px; margin: 0 auto; }
+    .contact-intro { font-size: 15px; font-weight: 300; color: var(--text-muted); margin-bottom: 48px; line-height: 1.7; }
+    .contact-links { display: flex; flex-direction: column; }
+    .contact-item { display: flex; align-items: baseline; gap: 20px; padding: 24px 0; border-bottom: 1px solid rgba(156,49,246,0.1); }
+    .contact-item:first-child { border-top: 1px solid rgba(156,49,246,0.1); }
+    .contact-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--purple); min-width: 120px; }
+    .contact-value { font-family: 'Archivo', sans-serif; font-size: 15px; font-weight: 300; color: var(--text); text-decoration: none; transition: color 0.2s; }
+    .contact-value:hover { color: var(--purple); }
     footer { background: var(--purple-light); padding: 20px 48px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
     .footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
     .footer-links { display: flex; gap: 32px; }
     .footer-links a { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--purple); }
     .footer-right a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
-
-    /* MOBILE */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
       .nav-links, .nav-cta { display: none; }
@@ -114,14 +47,12 @@
       .hamburger { display: flex; }
       .contact-section { padding: 48px 24px; }
       .contact-item { flex-direction: column; gap: 8px; }
-      .contact-label { min-width: auto; }
       footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
       .footer-links { flex-wrap: wrap; gap: 20px; }
     }
   </style>
 </head>
 <body>
-
 <nav id="navbar">
   <a href="index.html" class="nav-logo">
     <span class="logo-mark">FC</span>
@@ -138,7 +69,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-
 <div class="page-wrap">
   <section class="contact-section">
     <div class="contact-inner">
@@ -146,7 +76,7 @@
       <div class="contact-links">
         <div class="contact-item">
           <span class="contact-label">Email</span>
-          <a href="mailto:federicocovolan60@gmail.com">Mail</a>
+          <a href="mailto:federicocovolan60@gmail.com" class="contact-value">federicocovolan60@gmail.com</a>
         </div>
         <div class="contact-item">
           <span class="contact-label">LinkedIn</span>
@@ -160,7 +90,6 @@
     </div>
   </section>
 </div>
-
 <footer>
   <div class="footer-left">
     <p>Email: federicocovolan60@gmail.com</p>
@@ -171,7 +100,10 @@
     <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn</a>
     <a href="mailto:federicocovolan60@gmail.com">Mail</a>
   </div>
-  <div
+  <div class="footer-right">
+    <a href="privacy.html">Privacy &amp; Cookie Policy</a>
+  </div>
+</footer>
 <script>
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
