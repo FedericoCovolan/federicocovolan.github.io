@@ -48,6 +48,10 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; a
 .project-section { padding: 60px 48px; border-top: 1px solid rgba(156,49,246,0.1); }
 .project-section.purple-bg { background: var(--purple-section); }
 .project-section.dark-bg { background: var(--bg); }
+.img-stroke { border: 1px solid rgba(156,49,246,0.25); border-radius: 4px; }
+/* All images get stroke by default except Socio-technical_e */
+.project-section img, .project-hero img { border: 1px solid rgba(156,49,246,0.25); border-radius: 4px; }
+img[src*="Socio-technical_e"] { border: none; }
 .project-section-inner { max-width: 1200px; margin: 0 auto; }
 .section-label { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 28px; }
 .section-label.purple { color: var(--purple); }
@@ -123,7 +127,7 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
         <p><strong>Workshop:</strong> What is your knowledge and experience with social connections and technology within a supply chain management?</p>
       </div>
     </div>
-    <div class="img-placeholder" style="margin-top:48px; aspect-ratio:16/7;">Add main image — workshop overview / mess map</div>
+    <img src="img/Socio-technical_a.png" alt="Socio-technical a" style="width:100%; border-radius:4px; margin-top:48px;">
   </div>
 </section>
 
@@ -136,9 +140,9 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
         <p>Key phases: Re-framing present and monitoring progress → Adapting strategies → Reflecting and learning → Waiting and observing → Prototyping solutions → Stakeholder engagement → Iterative refinement.</p>
       </div>
       <div class="img-grid-3" style="margin-top:0;">
-        <div class="img-placeholder">Transition Design diagram</div>
-        <div class="img-placeholder">Transition Design Phases</div>
-        <div class="img-placeholder">Transition Design Future</div>
+        <img src="img/Socio-technical_b.png" alt="Socio-technical b" style="width:100%; border-radius:4px; object-fit:cover; aspect-ratio:4/3;">
+        <img src="img/Socio-technical_c.png" alt="Socio-technical c" style="width:100%; border-radius:4px; object-fit:cover; aspect-ratio:4/3;">
+        <img src="img/Socio-technical_d.png" alt="Socio-technical d" style="width:100%; border-radius:4px; object-fit:cover; aspect-ratio:4/3;">
       </div>
     </div>
   </div>
@@ -152,7 +156,7 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
         <p>To analyze the data, we used the Geels Multi-Level Perspective model as a framework for understanding the transition to a sustainable supply chain.</p>
         <p>According to Geels, sustainability transitions can be analysed through three interconnected levels: the socio-technical landscape, the sociotechnical regime and niche-innovations. We can see this as macro, meso and micro level.</p>
       </div>
-      <div class="img-placeholder tall">Add MLP model diagram — Geels and Schot 2007</div>
+      <img src="img/Socio-technical_e.png" alt="Socio-technical e" style="width:100%; border-radius:4px; object-fit:cover;">
     </div>
   </div>
 </section>
@@ -162,13 +166,13 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
     <p class="section-label purple">Finding Causes & Challenges</p>
     <div class="two-col">
       <div class="section-text">
-        <p><strong>Finding Causes:</strong> Complexity of decision making · Lack of true intention/commitment · No behaviour change · Lack of confidence – fear of wrong decisions/timing · Lack of fund/budget · Expectations · <strong>Lack of long-term direction</strong></p>
+        <p><strong>Challenges:</strong></p>
         <p><strong>Balancing service and sustainability</strong> — Maintaining service levels while meeting sustainability objectives.</p>
         <p><strong>Multi-stakeholder impact</strong> — Managing diverse and conflicting impacts across various stakeholders.</p>
         <p><strong>Data-sharing resistance</strong> — Overcoming active resistance to sharing critical data, especially in logistics.</p>
         <p><strong>Value of sustainability</strong> — Determining if sustainability has sufficient value in the business model to support required changes.</p>
       </div>
-      <div class="img-placeholder tall">Add Mess Map of Socio-Technical and Value-Based Messes in Supply Chain</div>
+      <img src="img/Socio-technical_f.png" alt="Socio-technical f" style="width:100%; border-radius:4px; object-fit:cover;">
     </div>
   </div>
 </section>
@@ -188,7 +192,6 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
     <a href="privacy.html">Privacy &amp; Cookie Policy</a>
   </div>
 </footer>
-<sc
 <script>
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
