@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Il Mercato delle Storie — Federico Covolan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Archivo:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F3EEFF; --bg2: #F9F9F9; --purple: #9C31F6;
+  --purple-light: #EDE0FF; --purple-section: #E8D5FF;
+  --text: #181818; --text-muted: #555; --nav-bg: rgba(243,238,255,0.85);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Archivo', sans-serif; background: var(--bg2); color: var(--text); overflow-x: hidden; }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: flex-start; padding: 20px 48px; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(156,49,246,0.08); }
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); transition: color 0.2s; }
+.nav-logo:hover { color: var(--purple); }
+.logo-mark { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: 26px; line-height: 1; letter-spacing: -1px; }
+.logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.05; }
+.nav-links { display: flex; gap: 48px; list-style: none; position: absolute; left: 55%; transform: translateX(-50%); }
+.nav-links a { font-size: 14px; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--purple); }
+.nav-cta a { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; transition: all 0.2s; }
+.nav-cta a:hover { color: var(--purple); border-color: var(--purple); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; margin-left: auto; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); }
+.page-wrap { padding-top: 80px; }
+.project-hero { padding: 80px 48px 60px; background: var(--bg); border-bottom: 1px solid rgba(156,49,246,0.1); }
+.project-hero-inner { max-width: 1200px; margin: 0 auto; }
+.back-link { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text); text-decoration: none; border-bottom: 2px solid var(--text); padding-bottom: 2px; margin-bottom: 40px; transition: all 0.2s; }
+.back-link:hover { color: var(--purple); border-color: var(--purple); }
+.project-category { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--purple); margin-bottom: 16px; }
+.project-title { font-family: 'Space Grotesk', sans-serif; font-weight: 800; font-size: clamp(36px, 6vw, 80px); letter-spacing: -2px; line-height: 0.95; color: var(--text); margin-bottom: 16px; }
+.project-subtitle { font-family: 'Space Grotesk', sans-serif; font-size: clamp(13px, 1.5vw, 16px); font-weight: 400; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 48px; }
+.project-hero-grid { display: grid; grid-template-columns: 280px 1fr; gap: 60px; align-items: start; }
+.project-meta { display: flex; flex-direction: column; gap: 20px; }
+.meta-group { display: flex; flex-direction: column; gap: 4px; }
+.meta-label { font-family: 'Space Grotesk', sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--purple); }
+.meta-value { font-size: 13px; font-weight: 300; color: var(--text-muted); line-height: 1.6; }
+.project-intro-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; }
+.project-section { padding: 60px 48px; border-top: 1px solid rgba(156,49,246,0.1); }
+.project-section.purple-bg { background: var(--purple-section); }
+.project-section.dark-bg { background: var(--bg); }
+.project-section-inner { max-width: 1200px; margin: 0 auto; }
+.section-label { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text); margin-bottom: 28px; }
+.section-label.purple { color: var(--purple); }
+.section-text p { font-size: 15px; font-weight: 300; line-height: 1.8; color: var(--text-muted); margin-bottom: 16px; max-width: 860px; }
+.section-text p strong { font-weight: 500; color: var(--text); }
+.img-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+.img-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+.img-grid-2 img, .img-grid-3 img { width: 100%; border-radius: 4px; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+footer { background: var(--purple-light); padding: 20px 48px; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-left p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.footer-links { display: flex; gap: 32px; }
+.footer-links a { font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--purple); }
+.footer-right a { font-size: 12px; color: var(--text-muted); text-decoration: none; }
+@media (max-width: 768px) {
+  nav { padding: 16px 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: var(--nav-bg); backdrop-filter: blur(12px); padding: 24px; gap: 20px; border-bottom: 1px solid rgba(156,49,246,0.1); }
+  .hamburger { display: flex; }
+  .project-hero { padding: 40px 24px; }
+  .project-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .project-section { padding: 40px 24px; }
+  .two-col { grid-template-columns: 1fr; gap: 32px; }
+  .img-grid-2, .img-grid-3 { grid-template-columns: 1fr 1fr; }
+  footer { padding: 16px 24px; flex-direction: column; align-items: flex-start; }
+  .footer-links { flex-wrap: wrap; gap: 20px; }
+}
+  </style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <span class="logo-mark">FC</span>
+    <span class="logo-text">Federico<br>Covolan</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About me</a></li>
+    <li><a href="projects.html">Projects</a></li>
+  </ul>
+  <div class="nav-cta" id="navCta" style="margin-left: auto;">
+    <a href="get_in_touch.html">Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="page-wrap">
+
+<section class="project-hero">
+  <div class="project-hero-inner">
+    <a href="projects.html" class="back-link">← Back to Projects</a>
+    <p class="project-category">Social Innovation · 2024</p>
+    <h1 class="project-title">IL MERCATO DELLE STORIE</h1>
+    <p class="project-subtitle">Social innovation project enhancing creativity in Turin's Aurora neighbourhood</p>
+    <div class="project-hero-grid">
+      <div class="project-meta">
+        <div class="meta-group"><span class="meta-label">Students</span><span class="meta-value">Sara Bruno<br>Fabiana Bodda<br>Giorgia Bodda<br>Federico Covolan<br>Chiara Toso</span></div>
+        <div class="meta-group"><span class="meta-label">Coordinating Teachers</span><span class="meta-value">Luca Davico<br>Diana Rolando<br>Marco Paolo Tamborrini</span></div>
+        <div class="meta-group"><span class="meta-label">Project Length</span><span class="meta-value">5 months</span></div>
+        <div class="meta-group"><span class="meta-label">My Role</span><span class="meta-value">Project, field and QGIS researching, economic evaluation, maps, field surveys, stakeholder analysis, sketching, modelling, rendering</span></div>
+        <div class="meta-group"><span class="meta-label">Project Place</span><span class="meta-value">Politecnico di Torino<br>2024</span></div>
+      </div>
+      <div class="project-intro-text">
+        <p>Aurora is a neighbourhood within the 7th District of Turin, situated close to the city centre but characterised by its demographic and socioeconomic features that already classify it as a periphery. The research aims to explore the concept of creativity in its broadest and most complex sense, particularly focusing on how it can be directed towards young creative individuals within the cultural context of the Torino Creativa project.</p>
+        <p>To investigate the neighbourhood, we employed a flexible method that combines territorial analysis tools, gathering and analysing both statistical-quantitative and perceptual-qualitative information. Starting with a historical overview of the Aurora district, we carefully considered factors related to the population composition, which is notably multicultural and youthful.</p>
+        <p>Aurora, due to its diverse population, stands out as one of the liveliest and most dynamic neighbourhoods in the Piedmontese capital. It is a place of contradictions: bustling with commerce, abundant in services for vulnerable groups, yet with public spaces that need attention.</p>
+      </div>
+    </div>
+    <img src="img/mercato_a.png" alt="Il Mercato delle Storie project materials" style="width:100%; border-radius:4px; margin-top:48px;">
+  </div>
+</section>
+
+<section class="project-section dark-bg">
+  <div class="project-section-inner">
+    <p class="section-label">Research Materials</p>
+    <div class="img-grid-2">
+      <img src="img/mercato_b.png" alt="Data cards detail" style="width:100%; border-radius:4px; object-fit:cover;">
+      <img src="img/mercato_c.png" alt="Aurora in Dati booklet" style="width:100%; border-radius:4px; object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<section class="project-section purple-bg">
+  <div class="project-section-inner">
+    <p class="section-label purple">Applications</p>
+    <div class="section-text">
+      <p>"The Marketplace of Stories" is a systemic, organic, multi-initiative project with the ultimate goal of enhancing the creativity present in the Aurora neighbourhood by telling it. The project is developed with the podcast <strong>"Dimmi Tutto"</strong> (Tell Me Everything), the market stall <strong>(Bancarella)</strong>, and an annual <strong>festival</strong>.</p>
+      <p>Creativity is narrated with the common thread of the market, the beating heart and symbol of the Aurora neighbourhood, through different project outputs such as interviews, meetings and works. The creatives involved are rare, little-known creatives who deserve a space to tell their story and present their vision of "creativity." The Story Market is about territory, participation and exchange.</p>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">Flow Diagram</p>
+    <img src="img/mercato_d.png" alt="System flow diagram" style="width:100%; border-radius:4px; margin-top:16px;">
+  </div>
+</section>
+
+<section class="project-section dark-bg">
+  <div class="project-section-inner">
+    <p class="section-label">Podcast, Festival and Bancarella</p>
+    <div class="img-grid-2">
+      <img src="img/mercato_e.png" alt="Podcast Dimmi Tutto mockup" style="width:100%; border-radius:4px; object-fit:cover;">
+      <img src="img/mercato_f.png" alt="Festival render" style="width:100%; border-radius:4px; object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<section class="project-section purple-bg">
+  <div class="project-section-inner">
+    <p class="section-label purple">Communication Strategy</p>
+    <div class="section-text">
+      <p>The communication strategy unfolds across a two-year timeline (2024–2025), coordinating weekly events and launch campaigns across all three initiatives. The vibrant colour palette reflects the multicultural energy of the Aurora neighbourhood.</p>
+    </div>
+    <img src="img/mercato_g.png" alt="Communication strategy timeline" style="width:100%; border-radius:4px; margin-top:32px;">
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="project-section-inner">
+    <p class="section-label">Project Development</p>
+    <div class="img-grid-2">
+      <img src="img/mercato_h.png" alt="Website and social media mockups" style="width:100%; border-radius:4px; object-fit:cover;">
+      <img src="img/mercato_i.png" alt="Bancarella and podcast social content" style="width:100%; border-radius:4px; object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+</div>
+<footer>
+  <div class="footer-left">
+    <p>Email: federicocovolan60@gmail.com</p>
+    <p>Copyright &copy; Federico Covolan. All rights reserved.</p>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn</a>
+    <a href="mailto:federicocovolan60@gmail.com">Mail</a>
+  </div>
+  <div class="footer-right">
+    <a href="privacy.html">Privacy &amp; Cookie Policy</a>
+  </div>
+</footer>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
