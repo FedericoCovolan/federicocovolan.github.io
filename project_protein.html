@@ -14,8 +14,8 @@
   --purple-light: #EDE0FF; --purple-section: #E8D5FF;
   --text: #181818; --text-muted: #555; --nav-bg: rgba(243,238,255,0.85);
 }
-html { scroll-behavior: smooth; }
-body { font-family: 'Archivo', sans-serif; background: var(--bg2); color: var(--text); overflow-x: hidden; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: 'Archivo', sans-serif; background: var(--bg2); color: var(--text); }
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: flex-start; padding: 20px 48px; background: var(--nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(156,49,246,0.08); }
 .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); transition: color 0.2s; }
 .nav-logo:hover { color: var(--purple); }
@@ -167,7 +167,7 @@ footer { background: var(--purple-light); padding: 20px 48px; display: flex; ali
       <p>The Gigamap was designed as a dynamic tool for sharing and dialogue to understand the complexity of the system and facilitate discussion between different stakeholders — researchers, companies, and institutions.</p>
       <p>Strategic Foresight was used to explore four futures scenarios ranging from possible to preferable, shaped by the influence of social media, technological and food innovations, and the shifting of global eating habits.</p>
     </div>
-    <img src="img/protein_e.png" alt="protein e" style="width:100%; border-radius:4px; margin-top:32px;">
+    <div style="overflow-x: auto; width: 100%; margin-top:32px;"><img src="img/protein_e.png" alt="gigamap" style="max-width: none; height: auto; border-radius:4px; display:block;"></div>
     <div class="img-grid-2">
       <img src="img/protein_f.png" alt="protein f" style="width:100%; border-radius:4px;">
       <img src="img/protein_g.png" alt="protein g" style="width:100%; border-radius:4px;">
