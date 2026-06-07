@@ -1,0 +1,8 @@
+/* ============================================================
+   FEDERICO COVOLAN — DESIGN SYSTEM ROOT STYLESHEET
+   Single entry point. Consumers can link only this file.
+   ============================================================ */
+
+@import url('colors_and_type.css');
+@import url('pages.css');
+@import url('project_page.css');
