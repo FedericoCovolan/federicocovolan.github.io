@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="About me page" subtitle="Editorial about page in line with the home + projects system" -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Federico Covolan</title>
+  <link rel="stylesheet" href="pages.css">
+  <style>
+    /* ====== HERO ====== */
+    .about-hero {
+      position: relative; padding: 132px var(--gutter) clamp(40px,6vw,80px);
+    }
+    .about-hero .wrap { max-width: var(--maxw); margin: 0 auto; }
+    .ah-kicker {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(13px,1.4vw,15px); letter-spacing: .12em;
+      text-transform: uppercase; color: var(--purple);
+      display: inline-flex; align-items: center; gap: 14px; margin-bottom: 18px;
+    }
+    .ah-name {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(46px, 9vw, 142px); line-height: .84;
+      letter-spacing: -0.045em; text-transform: uppercase;
+    }
+    .ah-name em {
+      font-family: var(--font-editorial); font-style: italic; font-weight: 400;
+      text-transform: none; color: var(--purple); letter-spacing: -0.01em;
+    }
+    .ah-grid {
+      margin-top: clamp(48px,6vw,80px);
+      display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(40px,6vw,90px);
+      align-items: start;
+    }
+    .ah-lead {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: clamp(22px,2.4vw,32px); line-height: 1.25;
+      letter-spacing: -0.02em; text-wrap: balance;
+    }
+    .ah-lead em { font-family: var(--font-editorial); font-style: italic; color: var(--purple); font-weight: 400; }
+    .ah-body { margin-top: clamp(24px,3vw,36px); max-width: 56ch; display: flex; flex-direction: column; gap: 16px; }
+    .ah-body p { font-family: var(--font-body); font-weight: 300; font-size: 16px; line-height: 1.75; color: var(--stone); }
+    .ah-body p strong { color: var(--ink); font-weight: 500; }
+
+    .ah-portrait {
+      width: 100%; aspect-ratio: 3/4; overflow: hidden;
+      border-radius: 4px; background: var(--paper-3);
+      box-shadow: 0 30px 80px rgba(22,19,14,.18);
+      position: relative;
+    }
+    .ah-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ah-portrait .ptag {
+      position: absolute; left: 12px; bottom: 12px; z-index: 2;
+      font-family: var(--font-display); font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .12em; color: #fff;
+      background: rgba(22,19,14,.45); backdrop-filter: blur(6px);
+      padding: 6px 10px; border-radius: 999px;
+    }
+
+    /* ====== EDUCATION ====== */
+    .education {
+      padding: clamp(60px,8vw,110px) var(--gutter);
+      background: var(--paper-2);
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .ed-wrap { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 280px 1fr; gap: clamp(40px,6vw,80px); align-items: start; }
+    .ed-wrap .ah-kicker { margin-bottom: 0; }
+    .ed-list { display: flex; flex-direction: column; }
+    .ed-row {
+      display: grid; grid-template-columns: 90px 1fr 1fr;
+      gap: clamp(16px,2.5vw,32px); align-items: baseline;
+      padding: clamp(18px,2.4vw,28px) 0;
+      border-top: 1px solid var(--line);
+    }
+    .ed-row:last-child { border-bottom: 1px solid var(--line); }
+    .ed-year { font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .12em; color: var(--purple); }
+    .ed-degree {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(18px,2vw,26px); letter-spacing: -0.02em; line-height: 1.15;
+    }
+    .ed-school {
+      font-family: var(--font-body); font-weight: 400; font-size: 14px;
+      color: var(--stone); text-align: right; line-height: 1.4;
+    }
+    .ed-school em { font-family: var(--font-editorial); font-style: italic; color: var(--purple); }
+
+    /* ====== FIELDS OF WORK ====== */
+    .fields { padding: clamp(80px,12vh,150px) var(--gutter); }
+    .fw-wrap { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(40px,6vw,90px); align-items: start; }
+    .fw-display {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(34px,5vw,76px); line-height: .92;
+      letter-spacing: -0.04em; text-transform: uppercase;
+      margin: 16px 0 28px;
+    }
+    .fw-display em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; color: var(--purple); text-transform: none; }
+    .fw-list { list-style: none; display: flex; flex-direction: column; }
+    .fw-list li {
+      display: grid; grid-template-columns: 56px 1fr; align-items: center; gap: clamp(12px,2vw,24px);
+      padding: clamp(18px,2.4vw,28px) 0; border-top: 1px solid var(--line);
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(20px,2.4vw,30px); letter-spacing: -0.025em; text-transform: uppercase;
+    }
+    .fw-list li:last-child { border-bottom: 1px solid var(--line); }
+    .fw-list li .fw-num { font-size: 12px; font-weight: 700; color: var(--stone); letter-spacing: .04em; text-transform: none; }
+    .fw-list li .fw-arr { width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-size: 12px; color: var(--stone); }
+    .fw-body { display: flex; flex-direction: column; gap: 16px; max-width: 48ch; }
+    .fw-body p { font-family: var(--font-body); font-weight: 300; font-size: 16px; line-height: 1.75; color: var(--stone); }
+    .fw-body p strong { color: var(--ink); font-weight: 500; }
+
+    /* ====== PROLEMNA FEATURE (dark band) ====== */
+    .feature {
+      background: var(--ink); color: var(--paper);
+      padding: clamp(90px,14vh,170px) var(--gutter);
+      position: relative; overflow: hidden;
+    }
+    .feature .ah-kicker { color: var(--purple-bright); }
+    .ft-wrap { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px,6vw,90px); align-items: center; }
+    .ft-eyebrow { font-family: var(--font-display); font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .14em; color: var(--stone-2); margin-bottom: 18px; }
+    .ft-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(40px,6vw,92px); line-height: .9;
+      letter-spacing: -0.04em; text-transform: uppercase;
+    }
+    .ft-title em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; color: var(--purple-bright); text-transform: none; }
+    .ft-body { margin-top: clamp(24px,3vw,36px); display: flex; flex-direction: column; gap: 14px; max-width: 52ch; }
+    .ft-body p { font-family: var(--font-body); font-weight: 300; font-size: 16px; line-height: 1.75; color: rgba(244,239,230,.78); }
+    .ft-body p strong { color: var(--paper); font-weight: 500; }
+
+    .ft-meta { margin-top: clamp(28px,3.5vw,40px); display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+    .ft-meta-row { display: flex; flex-direction: column; gap: 6px; padding-top: 14px; border-top: 1px solid var(--line-dark); }
+    .ft-meta-row .k { font-family: var(--font-display); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--stone-2); }
+    .ft-meta-row .v { font-family: var(--font-display); font-size: 14px; font-weight: 500; letter-spacing: -0.01em; }
+
+    .ft-cta { margin-top: clamp(28px,3.5vw,40px); }
+    .ft-cta a { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--paper); font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
+    .ft-cta a .circ { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--paper); display: grid; place-items: center; transition: .4s var(--ease-out); }
+    .ft-cta a:hover .circ { background: var(--purple-bright); border-color: var(--purple-bright); color: var(--ink); transform: translateX(4px); }
+
+    .ft-media {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;
+      aspect-ratio: 5/6;
+    }
+    .ft-img { position: relative; overflow: hidden; border-radius: 4px; background: var(--ink-2); }
+    .ft-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ft-img.is-placeholder {
+      background: repeating-linear-gradient(135deg, var(--ink-2), var(--ink-2) 14px, #1a1712 14px, #1a1712 28px);
+      display: grid; place-items: center; padding: 16px;
+    }
+    .ft-img.is-placeholder span {
+      font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+      font-size: 10px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--stone-2); text-align: center; line-height: 1.6;
+    }
+    .ft-img.tall { grid-row: span 2; }
+    .ft-col { display: grid; grid-template-rows: 1fr 1fr; gap: 12px; }
+
+    /* ====== OUTSIDE OF DESIGN ====== */
+    .off { padding: clamp(80px,12vh,150px) var(--gutter); }
+    .off-wrap { max-width: var(--maxw); margin: 0 auto; }
+    .off-head {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(38px,5.6vw,84px); line-height: .92;
+      letter-spacing: -0.04em; text-wrap: balance; max-width: 18ch;
+      margin: 16px 0 clamp(40px,6vw,72px);
+    }
+    .off-head em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; color: var(--purple); }
+    .off-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px,3vw,40px); }
+    .off-card {
+      border-top: 1px solid var(--line); padding-top: 22px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .off-card .num {
+      font-family: var(--font-display); font-weight: 700; font-size: 11px;
+      letter-spacing: .14em; color: var(--purple); text-transform: uppercase;
+    }
+    .off-card h3 {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(22px,2.2vw,30px); letter-spacing: -0.02em; line-height: 1.1;
+    }
+    .off-card p {
+      font-family: var(--font-body); font-weight: 300; font-size: 15px;
+      line-height: 1.7; color: var(--stone); max-width: 32ch;
+    }
+
+    @media (max-width: 900px) {
+      .about-hero { padding-top: 120px; }
+      .ah-grid { grid-template-columns: 1fr; gap: 40px; }
+      .ah-portrait { max-width: 360px; }
+      .ed-wrap, .fw-wrap, .ft-wrap, .off-grid { grid-template-columns: 1fr; gap: 32px; }
+      .ed-row { grid-template-columns: 60px 1fr; }
+      .ed-school { grid-column: 2; text-align: left; margin-top: 6px; }
+      .ft-meta { grid-template-columns: 1fr; }
+      .ft-media { aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-veil" id="veil"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" data-link>
+    <span class="logo-mark">FC</span>
+    <span class="logo-text">Federico<br>Covolan</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html" class="active" data-link>About me</a></li>
+    <li><a href="projects.html" data-link>Projects</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="get_in_touch.html" data-link>Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="about-hero">
+    <div class="wrap">
+      <p class="ah-kicker reveal">About</p>
+      <h1 class="ah-name reveal" data-d="1">Federico<br>Covolan</h1>
+
+      <div class="ah-grid">
+        <div>
+          <p class="ah-lead reveal" data-d="1">
+            A <em>systemic &amp; strategic</em> designer turning deep-tech research and complex resource flows into <em>circular</em>, buildable opportunity.
+          </p>
+          <div class="ah-body reveal" data-d="2">
+            <p>I'm a <strong>Systemic and Strategic Designer</strong> with a multidisciplinary background shaped by my studies at the Politecnico di Torino, the Oslo School of Architecture (AHO) and the Università di Ferrara.</p>
+            <p>My practice is rooted in the ability to <strong>visualise, prototype, and transform complexity</strong> into circular opportunities through strategic research and systems thinking. As a Duckweed enthusiast and founder of <strong>ProLemna</strong>, I'm dedicated to shaping the future of sustainable agrifood systems — implementing Duckweed's potential to revolutionise the supply chain through systemic innovation.</p>
+            <p>Outside of design I find balance in nature: hiking, walking, the gym, and diving into a good book. I'm always eager to apply systemic tools to create meaningful, lasting impact.</p>
+          </div>
+        </div>
+        <div class="ah-portrait reveal" data-d="2">
+          <img src="img/hero.png" alt="Federico Covolan portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="education">
+    <div class="ed-wrap">
+      <div class="reveal">
+        <p class="ah-kicker">Education</p>
+      </div>
+      <div class="ed-list">
+        <div class="ed-row reveal">
+          <span class="ed-year">2022 — 24</span>
+          <span class="ed-degree">MA Systemic Design</span>
+          <span class="ed-school">Politecnico di Torino<br><em>Cum laude, web publication</em></span>
+        </div>
+        <div class="ed-row reveal" data-d="1">
+          <span class="ed-year">2023</span>
+          <span class="ed-degree">MA Erasmus · Systems Oriented Design</span>
+          <span class="ed-school">Oslo School of Architecture<br>and Design (AHO)</span>
+        </div>
+        <div class="ed-row reveal" data-d="2">
+          <span class="ed-year">2018 — 22</span>
+          <span class="ed-degree">BA Product &amp; Industrial Design</span>
+          <span class="ed-school">Università di Ferrara<br><em>110 / 110</em></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FIELDS OF WORK ============ -->
+  <section class="fields">
+    <div class="fw-wrap">
+      <div>
+        <p class="ah-kicker reveal">Fields of Work</p>
+        <h2 class="fw-display reveal" data-d="1">A practice across <em>five</em> overlapping fields.</h2>
+        <ul class="fw-list">
+          <li class="reveal"><span class="fw-num">01</span><span>Systemic Design</span></li>
+          <li class="reveal" data-d="1"><span class="fw-num">02</span><span>Speculative Design</span></li>
+          <li class="reveal" data-d="2"><span class="fw-num">03</span><span>Strategic Design</span></li>
+          <li class="reveal" data-d="3"><span class="fw-num">04</span><span>Product Design</span></li>
+          <li class="reveal" data-d="4"><span class="fw-num">05</span><span>Exhibition Design</span></li>
+        </ul>
+      </div>
+      <div class="fw-body reveal" data-d="1">
+        <p>Driven by a passion for continuous learning, my work has evolved into a deeply <strong>multidisciplinary practice</strong> focused on navigating the layers of contemporary complexity — tackling innovation through a systemic lens, treating every challenge not as a standalone product, but as a <strong>living ecosystem</strong>.</p>
+        <p>My expertise spans <strong>product design, service orchestration and speculative futures</strong>, with a core focus on making invisible connections both visible and functional. Drawing from Politecnico di Torino and AHO Oslo, I translate complex socio-technical data into clear, strategic narratives.</p>
+        <p>The goal is to bridge the gap between high-level strategy and the modular, practical execution required to <strong>scale a vision</strong> — committed to a design practice that is critical, sustainable, and accessible.</p>
+        <a href="projects.html" class="ghost-link" data-link style="margin-top:18px;">See the projects <span class="circ">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROLEMNA FEATURE ============ -->
+  <section class="feature">
+    <div class="ft-wrap">
+      <div>
+        <p class="ft-eyebrow reveal">Featured · Startup</p>
+        <h2 class="ft-title reveal" data-d="1">ProLemna</h2>
+        <div class="ft-body reveal" data-d="2">
+          <p>Starting as a bachelor thesis, <strong>ProLemna</strong> won the 2024 <strong>Range Rover Leadership Academy</strong> and began its journey as a startup, subsequently incubated at <strong>2i3T</strong>.</p>
+          <p>As founder and Business Developer, I translate the systemic approach into operational management — coordinating the strategic vision to ensure the circularity of the model, business plans and financial analysis, stakeholder relations with investors and partners, and project management across a multidisciplinary team toward market entry.</p>
+        </div>
+
+        <div class="ft-meta reveal" data-d="3">
+          <div class="ft-meta-row"><span class="k">Role</span><span class="v">Founder · Business Developer</span></div>
+          <div class="ft-meta-row"><span class="k">Year</span><span class="v">2023 — present</span></div>
+          <div class="ft-meta-row"><span class="k">Award</span><span class="v">Range Rover Leadership Academy ’24</span></div>
+          <div class="ft-meta-row"><span class="k">Incubator</span><span class="v">2i3T · Torino</span></div>
+        </div>
+
+        <div class="ft-cta reveal" data-d="3">
+          <a href="project_prolemna.html" data-link>Read the project <span class="circ">↗</span></a>
+        </div>
+      </div>
+
+      <div class="ft-media reveal" data-d="2">
+        <div class="ft-img tall">
+          <img src="img/prolemna_1.png" alt="ProLemna — field work">
+        </div>
+        <div class="ft-col">
+          <div class="ft-img">
+            <img src="img/project_prolemna.jpg" alt="ProLemna — systemic map">
+          </div>
+          <div class="ft-img">
+            <img src="img/prolemna_3.png" alt="ProLemna — duckweed close-up">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OUTSIDE OF DESIGN ============ -->
+  <section class="off">
+    <div class="off-wrap">
+      <p class="ah-kicker reveal">Outside the studio</p>
+      <h2 class="off-head reveal" data-d="1">Recalibrating the practice <em>through the outdoors</em>.</h2>
+
+      <div class="off-grid">
+        <article class="off-card reveal">
+          <span class="num">01 / Outdoors</span>
+          <h3>Hiking &amp; walking</h3>
+          <p>Long walks and trails as the most reliable way to think a problem through end-to-end.</p>
+        </article>
+        <article class="off-card reveal" data-d="1">
+          <span class="num">02 / Physical</span>
+          <h3>Training &amp; the gym</h3>
+          <p>Discipline borrowed from training informs how I plan, iterate and ship — slow, consistent compounding.</p>
+        </article>
+        <article class="off-card reveal" data-d="2">
+          <span class="num">03 / Reading</span>
+          <h3>Books &amp; field notes</h3>
+          <p>From soil science to economic anthropology — diverse reading is where most of the bridges between fields appear.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING FOOTER ============ -->
+  <footer class="closing">
+    <div class="wrap">
+      <p class="eyebrow reveal">Let's collaborate</p>
+      <h2 class="closing-head reveal" data-d="1">
+        Designing the systems that <em>regenerate</em> what we've spent — from soil to supply chain
+      </h2>
+      <a href="get_in_touch.html" class="closing-cta reveal" data-d="2" data-link>
+        Start a conversation <span class="arr">↗</span>
+      </a>
+
+      <div class="closing-foot">
+        <div class="cf-col cf-brand-col">
+          <a href="index.html" class="cf-lockup" data-link aria-label="Federico Covolan — home">
+            <span class="cf-mark">FC</span>
+            <span class="cf-wm">Federico<br>Covolan</span>
+          </a>
+        </div>
+        <div class="cf-col">
+          <h4>Index</h4>
+          <a href="index.html" data-link>Home</a>
+          <a href="about.html" data-link>About me</a>
+          <a href="projects.html" data-link>Projects</a>
+          <a href="get_in_touch.html" data-link>Get in touch</a>
+        </div>
+        <div class="cf-col">
+          <h4>Elsewhere</h4>
+          <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="mailto:federicocovolan60@gmail.com">Email ↗</a>
+        </div>
+        <div class="cf-col">
+          <h4>Contact</h4>
+          <a href="mailto:federicocovolan60@gmail.com">federicocovolan60<br>@gmail.com</a>
+        </div>
+      </div>
+      <div class="closing-base">
+        <span>© 2026 Federico Covolan — Systemic &amp; Strategic Designer</span>
+        <span>Designed as a living system · <a href="privacy.html" data-link>Privacy &amp; Cookie Policy</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script src="pages.js"></script>
+</body>
+</html>

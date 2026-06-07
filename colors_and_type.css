@@ -1,0 +1,110 @@
+/* ============================================================
+   FEDERICO COVOLAN — DESIGN SYSTEM
+   colors_and_type.css — foundational + semantic tokens
+   ------------------------------------------------------------
+   Aesthetic: editorial, systemic, sophisticated.
+   Warm paper neutrals + warm near-black + one electric purple.
+   Type pairs geometric Space Grotesk (display) with an
+   Instrument Serif italic "editorial voice" and Archivo body.
+   ============================================================ */
+
+/* ---------- FONTS (self-hosted brand fonts — variable TTF, see /fonts) ---------- */
+@font-face { font-family: 'Space Grotesk'; font-weight: 300 700; font-style: normal; font-display: swap; src: url('fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype'); }
+@font-face { font-family: 'Archivo'; font-weight: 100 900; font-style: normal; font-display: swap; src: url('fonts/Archivo-VariableFont_wdth_wght.ttf') format('truetype'); }
+@font-face { font-family: 'Archivo'; font-weight: 100 900; font-style: italic; font-display: swap; src: url('fonts/Archivo-Italic-VariableFont_wdth_wght.ttf') format('truetype'); }
+@font-face { font-family: 'Instrument Serif'; font-weight: 400; font-style: normal; font-display: swap; src: url('fonts/InstrumentSerif-400.woff2') format('woff2'); }
+@font-face { font-family: 'Instrument Serif'; font-weight: 400; font-style: italic; font-display: swap; src: url('fonts/InstrumentSerif-400i.woff2') format('woff2'); }
+
+:root {
+  /* ===== COLOR — RAW PALETTE ===== */
+  /* Lilac paper neutrals — base #F2EEFE as on the pre-Claude site */
+  --paper:        #F2EEFE;  /* primary light background — soft lilac   */
+  --paper-2:      #E8E1FA;  /* deeper lilac — alternating sections     */
+  --paper-3:      #DDD2F4;  /* deepest lilac — cards / chips on paper  */
+
+  /* Warm near-black (replaces flat #181818) */
+  --ink:          #16130E;  /* primary dark background + text          */
+  --ink-2:        #221E17;  /* raised surface on dark                  */
+  --ink-soft:     #3A352B;  /* hairlines / muted strokes on dark       */
+
+  /* Electric purple — the signature accent (kept from brand) */
+  --purple:       #9C31F6;
+  --purple-deep:  #6E18C4;  /* pressed / hover-dark                    */
+  --purple-bright:#B45CFF;  /* on-dark accent text                     */
+  --lilac:        #EDE4FF;  /* soft purple wash                        */
+  --lilac-2:      #DCC9FF;  /* stronger lilac fill                     */
+
+  /* Warm muted greys (warm, not blue) */
+  --stone:        #6E665A;  /* muted text on paper                     */
+  --stone-2:      #9A9182;  /* faint text / captions                   */
+  --line:         #16130E1a;/* hairline on paper (ink @ 10%)           */
+  --line-dark:    #F2EEFE1f;/* hairline on dark (paper @ 12%)          */
+
+  /* ===== TYPE — FAMILIES ===== */
+  --font-display: 'Space Grotesk', system-ui, sans-serif; /* headings, kinetic type, labels */
+  --font-body:    'Archivo', system-ui, sans-serif;       /* paragraphs, UI                 */
+  --font-editorial:'Instrument Serif', Georgia, serif;    /* italic editorial accents       */
+
+  /* ===== TYPE — SEMANTIC SCALE ===== */
+  /* Display = oversized kinetic headings, tight tracking */
+  --display-1:    clamp(64px, 12vw, 200px); /* @kind font */
+  --display-1-ls: -0.045em;                 /* @kind font */
+  --display-1-lh: 0.86;                     /* @kind font */
+  --display-2:    clamp(44px, 7vw, 110px);  /* @kind font */
+  --display-2-ls: -0.04em;                  /* @kind font */
+  --display-2-lh: 0.9;                      /* @kind font */
+
+  --h1:           clamp(34px, 4.4vw, 60px); /* @kind font */
+  --h1-ls:        -0.03em;                  /* @kind font */
+  --h2:           clamp(24px, 2.6vw, 36px); /* @kind font */
+  --h2-ls:        -0.02em;                  /* @kind font */
+  --h3:           20px;                     /* @kind font */
+  --h3-ls:        -0.01em;                  /* @kind font */
+
+  --body-lg:      19px;   /* lead paragraphs            */
+  --body:         16px;   /* default body               */
+  --body-sm:      14px;   /* secondary                  */
+
+  /* Eyebrow / micro-label — uppercase Space Grotesk, wide tracking */
+  --label:        12px;
+  --label-ls:     0.16em;
+  --label-weight: 700;
+
+  /* ===== RADii / ELEVATION / MOTION ===== */
+  --r-xs: 2px;
+  --r-sm: 4px;       /* the brand's signature small radius (images/cards) */
+  --r-md: 10px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(22,19,14,0.06);
+  --shadow-md: 0 8px 30px rgba(22,19,14,0.10);
+  --shadow-lift: 0 20px 60px rgba(22,19,14,0.18);
+  --shadow-purple: 0 14px 40px rgba(156,49,246,0.28);
+
+  /* Spacing rhythm (8pt base) */
+  --sp-1: 8px;  --sp-2: 16px; --sp-3: 24px; --sp-4: 40px;
+  --sp-5: 64px; --sp-6: 96px; --sp-7: 140px;
+
+  /* Motion — editorial easing: confident, slightly overshooting */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);    /* @kind other */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --dur-fast: 0.22s;                              /* @kind other */
+  --dur: 0.45s;                                   /* @kind other */
+  --dur-slow: 0.8s;                               /* @kind other */
+
+  --maxw: 1280px;                  /* @kind spacing */
+  --gutter: clamp(20px, 5vw, 72px); /* @kind spacing */
+}
+
+/* ============================================================
+   SEMANTIC HELPER CLASSES (optional — tokens above are canonical)
+   ============================================================ */
+.ds-display-1 { font-family: var(--font-display); font-weight: 700; font-size: var(--display-1); letter-spacing: var(--display-1-ls); line-height: var(--display-1-lh); }
+.ds-display-2 { font-family: var(--font-display); font-weight: 700; font-size: var(--display-2); letter-spacing: var(--display-2-ls); line-height: var(--display-2-lh); }
+.ds-h1 { font-family: var(--font-display); font-weight: 700; font-size: var(--h1); letter-spacing: var(--h1-ls); line-height: 1.02; }
+.ds-h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--h2); letter-spacing: var(--h2-ls); line-height: 1.05; }
+.ds-h3 { font-family: var(--font-display); font-weight: 500; font-size: var(--h3); letter-spacing: var(--h3-ls); }
+.ds-editorial { font-family: var(--font-editorial); font-style: italic; font-weight: 400; }
+.ds-body-lg { font-family: var(--font-body); font-weight: 300; font-size: var(--body-lg); line-height: 1.65; }
+.ds-body { font-family: var(--font-body); font-weight: 400; font-size: var(--body); line-height: 1.7; }
+.ds-label { font-family: var(--font-display); font-weight: var(--label-weight); font-size: var(--label); letter-spacing: var(--label-ls); text-transform: uppercase; }

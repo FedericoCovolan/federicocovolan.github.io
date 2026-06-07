@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Get in touch page" subtitle="Editorial big-type contact page" -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get in touch — Federico Covolan</title>
+  <link rel="stylesheet" href="pages.css">
+  <style>
+    /* ====== HERO ====== */
+    .contact-hero {
+      position: relative; padding: 160px var(--gutter) 0;
+      display: flex; flex-direction: column;
+    }
+    .contact-hero .wrap { max-width: var(--maxw); margin: 0 auto; width: 100%; }
+    .ch-kicker {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(13px,1.4vw,15px); letter-spacing: .12em;
+      text-transform: uppercase; color: var(--purple);
+      display: inline-flex; align-items: center; gap: 14px; margin-bottom: 18px;
+    }
+    .ch-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(56px, 10vw, 168px); line-height: .84;
+      letter-spacing: -0.045em; text-transform: uppercase;
+    }
+    .ch-title em {
+      font-family: var(--font-editorial); font-style: italic; font-weight: 400;
+      text-transform: none; color: var(--purple); letter-spacing: -0.01em;
+    }
+    .ch-intro {
+      margin-top: clamp(28px,3.5vw,46px); max-width: 640px;
+      font-family: var(--font-body); font-weight: 300;
+      font-size: clamp(18px,1.6vw,22px); line-height: 1.55; color: var(--stone);
+    }
+    .ch-intro strong { color: var(--ink); font-weight: 500; }
+
+    /* ====== CONTACT ROWS ====== */
+    .contact-list {
+      margin-top: clamp(60px,9vh,110px);
+      display: flex; flex-direction: column;
+    }
+    .contact-row {
+      display: grid; grid-template-columns: 180px 1fr auto;
+      gap: clamp(20px,4vw,60px); align-items: center;
+      padding: clamp(26px,3.5vw,42px) 0;
+      border-top: 1px solid var(--line);
+      text-decoration: none; color: var(--ink);
+      transition: padding-left .45s var(--ease-out);
+    }
+    .contact-row:last-child { border-bottom: 1px solid var(--line); }
+    .contact-row:hover { padding-left: clamp(8px,2vw,28px); }
+    .cr-label {
+      font-family: var(--font-display); font-weight: 700; font-size: 12px;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--stone);
+    }
+    .cr-value {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(22px,3.6vw,46px); line-height: 1; letter-spacing: -0.03em;
+      text-transform: none; transition: color .3s, transform .45s var(--ease-out);
+    }
+    .contact-row:hover .cr-value { color: var(--purple); transform: translateX(6px); }
+    .cr-arr {
+      width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink);
+      display: grid; place-items: center;
+      font-family: var(--font-display); font-size: 14px;
+      transition: .4s var(--ease-out);
+    }
+    .contact-row:hover .cr-arr { background: var(--purple); border-color: var(--purple); color: #fff; transform: translateX(4px); }
+
+    /* ====== AVAILABILITY ====== */
+    .availability {
+      padding: clamp(60px,8vw,100px) var(--gutter) clamp(80px,12vh,140px);
+    }
+    .availability .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px,6vw,90px); }
+    .avail-card { border-top: 1px solid var(--line); padding-top: 22px; }
+    .avail-card h3 {
+      font-family: var(--font-display); font-weight: 700; font-size: 11px;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--stone);
+      margin-bottom: 14px;
+    }
+    .avail-card p {
+      font-family: var(--font-display); font-weight: 500; font-size: clamp(20px,2vw,28px);
+      letter-spacing: -0.02em; line-height: 1.2;
+    }
+    .avail-card p em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; color: var(--purple); }
+
+    @media (max-width: 900px) {
+      .contact-hero { padding-top: 120px; }
+      .contact-row { grid-template-columns: 1fr auto; gap: 14px; padding: 22px 0; }
+      .cr-label { grid-column: 1 / -1; }
+      .cr-value { font-size: clamp(22px,5vw,32px); }
+      .availability .wrap { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-veil" id="veil"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" data-link>
+    <span class="logo-mark">FC</span>
+    <span class="logo-text">Federico<br>Covolan</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html" data-link>About me</a></li>
+    <li><a href="projects.html" data-link>Projects</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="get_in_touch.html" class="active" data-link>Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<main>
+  <!-- ============ HERO ============ -->
+  <section class="contact-hero">
+    <div class="wrap">
+      <p class="ch-kicker reveal">Contact</p>
+      <h1 class="ch-title reveal" data-d="1">
+        Get in<br><em>touch</em>
+      </h1>
+      <p class="ch-intro reveal" data-d="2">
+        For <strong>info</strong>, <strong>commissions</strong> and <strong>collaborations</strong> — or just to compare notes on systemic and regenerative design — feel free to reach out through any of the channels below.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT LIST ============ -->
+  <section class="section" style="padding-top: 0;">
+    <div class="wrap">
+      <div class="contact-list">
+        <a href="mailto:federicocovolan60@gmail.com" class="contact-row reveal">
+          <span class="cr-label">Email</span>
+          <span class="cr-value">federicocovolan60@gmail.com</span>
+          <span class="cr-arr">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener" class="contact-row reveal" data-d="1">
+          <span class="cr-label">LinkedIn</span>
+          <span class="cr-value">/in/federicocovolan0423</span>
+          <span class="cr-arr">↗</span>
+        </a>
+        <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener" class="contact-row reveal" data-d="2">
+          <span class="cr-label">Instagram</span>
+          <span class="cr-value">@covolanfederico</span>
+          <span class="cr-arr">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AVAILABILITY ============ -->
+  <section class="availability">
+    <div class="wrap">
+      <div class="avail-card reveal">
+        <h3>Based</h3>
+        <p>Torino, Italy — <em>open</em> to remote &amp; relocation.</p>
+      </div>
+      <div class="avail-card reveal" data-d="1">
+        <h3>Currently</h3>
+        <p>Building <em>ProLemna</em>, freelancing &amp; recalibrating outdoors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING FOOTER ============ -->
+  <footer class="closing">
+    <div class="wrap">
+      <p class="eyebrow reveal">Index</p>
+      <h2 class="closing-head reveal" data-d="1">
+        Let's design the systems that <em>regenerate</em> what we've spent
+      </h2>
+
+      <div class="closing-foot">
+        <div class="cf-col cf-brand-col">
+          <a href="index.html" class="cf-lockup" data-link aria-label="Federico Covolan — home">
+            <span class="cf-mark">FC</span>
+            <span class="cf-wm">Federico<br>Covolan</span>
+          </a>
+        </div>
+        <div class="cf-col">
+          <h4>Index</h4>
+          <a href="index.html" data-link>Home</a>
+          <a href="about.html" data-link>About me</a>
+          <a href="projects.html" data-link>Projects</a>
+          <a href="get_in_touch.html" data-link>Get in touch</a>
+        </div>
+        <div class="cf-col">
+          <h4>Elsewhere</h4>
+          <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="mailto:federicocovolan60@gmail.com">Email ↗</a>
+        </div>
+        <div class="cf-col">
+          <h4>Contact</h4>
+          <a href="mailto:federicocovolan60@gmail.com">federicocovolan60<br>@gmail.com</a>
+        </div>
+      </div>
+      <div class="closing-base">
+        <span>© 2026 Federico Covolan — Systemic &amp; Strategic Designer</span>
+        <span>Designed as a living system · <a href="privacy.html" data-link>Privacy &amp; Cookie Policy</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script src="pages.js"></script>
+</body>
+</html>
