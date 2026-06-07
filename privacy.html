@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!-- @dsCard group="Brand" name="Privacy & Cookie Policy page" subtitle="Editorial legal page with sticky TOC" -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy &amp; Cookie Policy — Federico Covolan</title>
+  <link rel="stylesheet" href="pages.css">
+  <style>
+    /* ====== HEADER ====== */
+    .privacy-hero {
+      padding: 160px var(--gutter) clamp(40px,6vw,80px);
+    }
+    .ph-wrap { max-width: 980px; margin: 0 auto; }
+    .ph-kicker {
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(13px,1.4vw,15px); letter-spacing: .12em;
+      text-transform: uppercase; color: var(--purple);
+      display: inline-flex; align-items: center; gap: 14px; margin-bottom: 18px;
+    }
+    .ph-title {
+      font-family: var(--font-display); font-weight: 700;
+      font-size: clamp(40px,6.4vw,96px); line-height: .9;
+      letter-spacing: -0.04em; text-wrap: balance;
+    }
+    .ph-title em {
+      font-family: var(--font-editorial); font-style: italic; font-weight: 400;
+      color: var(--purple); letter-spacing: -0.01em;
+    }
+    .ph-meta {
+      margin-top: clamp(24px,3vw,36px);
+      display: flex; gap: clamp(24px,4vw,60px); flex-wrap: wrap;
+      border-top: 1px solid var(--line); padding-top: 18px;
+      font-family: var(--font-display); font-size: 12px;
+      text-transform: uppercase; letter-spacing: .14em; color: var(--stone);
+    }
+    .ph-meta span strong { color: var(--ink); font-weight: 700; }
+
+    /* ====== BODY ====== */
+    .privacy-body {
+      padding: clamp(40px,6vw,80px) var(--gutter) clamp(80px,12vh,140px);
+    }
+    .pb-wrap {
+      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: 220px 1fr; gap: clamp(40px,6vw,80px);
+      align-items: start;
+    }
+
+    /* sticky table of contents */
+    .toc { position: sticky; top: 110px; align-self: start; }
+    .toc h4 {
+      font-family: var(--font-display); font-weight: 700; font-size: 11px;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--stone);
+      margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 10px; }
+    .toc li { counter-increment: toc; }
+    .toc a {
+      font-family: var(--font-display); font-size: 12px; font-weight: 500;
+      color: var(--stone); text-decoration: none; display: flex; gap: 8px;
+      transition: color .25s, transform .25s;
+      letter-spacing: .01em; line-height: 1.35;
+    }
+    .toc a::before { content: counter(toc, decimal-leading-zero); color: var(--purple); font-weight: 700; min-width: 22px; }
+    .toc a:hover { color: var(--ink); transform: translateX(2px); }
+
+    .privacy-content { display: flex; flex-direction: column; gap: clamp(40px,5vw,64px); }
+    .pblock { display: flex; flex-direction: column; gap: 14px; padding-bottom: clamp(40px,5vw,64px); border-bottom: 1px solid var(--line); }
+    .pblock:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .pblock .pb-num {
+      font-family: var(--font-display); font-weight: 700; font-size: 11px;
+      text-transform: uppercase; letter-spacing: .16em; color: var(--purple);
+    }
+    .pblock h2 {
+      font-family: var(--font-display); font-weight: 500;
+      font-size: clamp(24px,2.6vw,36px); letter-spacing: -0.02em;
+      line-height: 1.1; color: var(--ink); text-wrap: balance;
+    }
+    .pblock h2 em {
+      font-family: var(--font-editorial); font-style: italic; font-weight: 400;
+      color: var(--purple); letter-spacing: -0.01em;
+    }
+    .pblock p {
+      font-family: var(--font-body); font-weight: 300;
+      font-size: 16px; line-height: 1.75; color: var(--ink);
+      max-width: 62ch;
+    }
+    .pblock p strong { font-weight: 500; color: var(--ink); }
+    .pblock a {
+      color: var(--purple); text-decoration: none;
+      border-bottom: 1px solid color-mix(in oklch, var(--purple) 40%, transparent);
+      transition: border-color .2s, color .2s;
+    }
+    .pblock a:hover { color: var(--purple-deep); border-bottom-color: var(--purple); }
+    .pblock ul { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+    .pblock ul li {
+      font-family: var(--font-body); font-weight: 300; font-size: 16px;
+      line-height: 1.65; color: var(--ink); padding-left: 22px; position: relative;
+      max-width: 62ch;
+    }
+    .pblock ul li::before {
+      content: ''; position: absolute; left: 0; top: .65em;
+      width: 12px; height: 1.5px; background: var(--purple);
+    }
+
+    @media (max-width: 900px) {
+      .privacy-hero { padding-top: 120px; }
+      .pb-wrap { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .toc ol { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-veil" id="veil"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo" data-link>
+    <span class="logo-mark">FC</span>
+    <span class="logo-text">Federico<br>Covolan</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html" data-link>About me</a></li>
+    <li><a href="projects.html" data-link>Projects</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="get_in_touch.html" data-link>Get in touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<main>
+  <!-- ============ HEADER ============ -->
+  <section class="privacy-hero">
+    <div class="ph-wrap">
+      <p class="ph-kicker reveal">Legal</p>
+      <h1 class="ph-title reveal" data-d="1">Privacy &amp; <em>Cookie</em> Policy</h1>
+      <div class="ph-meta reveal" data-d="2">
+        <span><strong>Last updated</strong> · April 2026</span>
+        <span><strong>Jurisdiction</strong> · EU GDPR / Italy</span>
+        <span><strong>Reading time</strong> · 6 min</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BODY ============ -->
+  <section class="privacy-body">
+    <div class="pb-wrap">
+
+      <aside class="toc">
+        <h4>Sections</h4>
+        <ol>
+          <li><a href="#s1">Data Controller</a></li>
+          <li><a href="#s2">Types of Data Collected</a></li>
+          <li><a href="#s3">Purpose &amp; Legal Basis</a></li>
+          <li><a href="#s4">Cookie Policy</a></li>
+          <li><a href="#s5">Data Retention</a></li>
+          <li><a href="#s6">User Rights</a></li>
+          <li><a href="#s7">IP &amp; Copyright</a></li>
+          <li><a href="#s8">Third-Party Links</a></li>
+          <li><a href="#s9">Changes to this Policy</a></li>
+        </ol>
+      </aside>
+
+      <div class="privacy-content">
+
+        <article class="pblock reveal" id="s1">
+          <span class="pb-num">01 / Data Controller</span>
+          <h2>Who is <em>responsible</em> for your data</h2>
+          <p>This website is owned and operated by <strong>Federico Covolan</strong>, Systemic and Strategic Designer.</p>
+          <p>For any privacy-related requests or information, you may contact the data controller at:</p>
+          <ul>
+            <li>Email: <a href="mailto:federicocovolan60@gmail.com">federicocovolan60@gmail.com</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">linkedin.com/in/federicocovolan0423</a></li>
+          </ul>
+        </article>
+
+        <article class="pblock reveal" id="s2">
+          <span class="pb-num">02 / Types of Data Collected</span>
+          <h2>What kind of data <em>may</em> be processed</h2>
+          <p>This website is a personal portfolio and does not collect personal data through forms or registration systems. The only data that may be collected are:</p>
+          <ul>
+            <li>Navigation data automatically collected by the server (IP address, browser type, pages visited, date and time of access) — used solely for statistical purposes and automatically deleted.</li>
+            <li>Data voluntarily provided by users who contact the owner via email or social media.</li>
+          </ul>
+          <p>No sensitive personal data is collected or processed through this website.</p>
+        </article>
+
+        <article class="pblock reveal" id="s3">
+          <span class="pb-num">03 / Purpose &amp; Legal Basis</span>
+          <h2>Why the data is <em>processed</em></h2>
+          <p>Personal data, if any, is processed exclusively for the following purposes:</p>
+          <ul>
+            <li>Responding to requests and enquiries sent via email or social media.</li>
+            <li>Statistical analysis of website traffic in aggregate and anonymous form.</li>
+            <li>Ensuring the technical functioning and security of the website.</li>
+          </ul>
+          <p>The legal basis for processing is the legitimate interest of the data controller and, where applicable, the consent of the user.</p>
+        </article>
+
+        <article class="pblock reveal" id="s4">
+          <span class="pb-num">04 / Cookie Policy</span>
+          <h2>Only the cookies strictly <em>necessary</em></h2>
+          <p>This website uses only technical cookies necessary for its correct operation. No profiling cookies, tracking cookies, or third-party marketing cookies are used.</p>
+          <p><strong>Technical cookies</strong> are essential for the functioning of the website and do not require consent. They include session cookies that are automatically deleted when the browser is closed.</p>
+          <p>This website does not use Google Analytics, advertising cookies, or any tracking systems that monitor user behaviour across different websites.</p>
+        </article>
+
+        <article class="pblock reveal" id="s5">
+          <span class="pb-num">05 / Data Retention</span>
+          <h2>How long data is <em>kept</em></h2>
+          <p>Navigation data is retained for the time strictly necessary to provide the requested service and for the fulfilment of legal obligations. Data provided voluntarily through email contact will be retained only for the time necessary to respond to the request.</p>
+        </article>
+
+        <article class="pblock reveal" id="s6">
+          <span class="pb-num">06 / User Rights</span>
+          <h2>The rights <em>you</em> can exercise</h2>
+          <p>In accordance with the EU General Data Protection Regulation (GDPR — Regulation 2016/679), users have the right to:</p>
+          <ul>
+            <li>Access their personal data held by the data controller.</li>
+            <li>Request rectification or erasure of their personal data.</li>
+            <li>Object to or restrict the processing of their data.</li>
+            <li>Request data portability where applicable.</li>
+            <li>Withdraw consent at any time without affecting the lawfulness of processing based on consent before withdrawal.</li>
+            <li>Lodge a complaint with the competent supervisory authority (in Italy: <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>).</li>
+          </ul>
+          <p>To exercise any of these rights, please contact: <a href="mailto:federicocovolan60@gmail.com">federicocovolan60@gmail.com</a>.</p>
+        </article>
+
+        <article class="pblock reveal" id="s7">
+          <span class="pb-num">07 / Intellectual Property &amp; Copyright</span>
+          <h2>Ownership of the <em>content</em></h2>
+          <p>All content published on this website — including but not limited to texts, images, graphics, project documentation, layouts, photographs, and visual materials — is the exclusive intellectual property of <strong>Federico Covolan</strong>, unless otherwise stated.</p>
+          <p>All rights are reserved. No part of this website's content may be reproduced, distributed, transmitted, displayed, published, or broadcast in any form or by any means without the prior written permission of Federico Covolan.</p>
+          <p>The projects presented on this website may include collaborative works. In such cases, the contributions of co-authors and collaborators are duly acknowledged within the respective project pages. The overall curation, design, and presentation of the portfolio remain the intellectual property of Federico Covolan.</p>
+          <p>Any unauthorised use of the content on this website constitutes a violation of copyright law and may result in civil and/or criminal liability under applicable Italian and international intellectual property laws.</p>
+          <p>For permissions, licensing enquiries, or collaborations, please contact: <a href="mailto:federicocovolan60@gmail.com">federicocovolan60@gmail.com</a>.</p>
+        </article>
+
+        <article class="pblock reveal" id="s8">
+          <span class="pb-num">08 / Third-Party Links</span>
+          <h2>External <em>links</em></h2>
+          <p>This website may contain links to external websites (LinkedIn, Instagram). Federico Covolan is not responsible for the privacy practices or content of these third-party websites. Users are encouraged to review the privacy policies of any external sites they visit.</p>
+        </article>
+
+        <article class="pblock reveal" id="s9">
+          <span class="pb-num">09 / Changes to this Policy</span>
+          <h2>How updates are <em>handled</em></h2>
+          <p>This Privacy &amp; Cookie Policy may be updated periodically to reflect changes in the website or applicable law. The date of the last update is indicated at the top of this page. Continued use of the website after any changes constitutes acceptance of the updated policy.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING FOOTER ============ -->
+  <footer class="closing">
+    <div class="wrap">
+      <p class="eyebrow reveal">Index</p>
+      <h2 class="closing-head reveal" data-d="1">
+        Questions about the <em>terms</em>? Just send an email
+      </h2>
+      <a href="mailto:federicocovolan60@gmail.com" class="closing-cta reveal" data-d="2">
+        Contact the data controller <span class="arr">↗</span>
+      </a>
+
+      <div class="closing-foot">
+        <div class="cf-col cf-brand-col">
+          <a href="index.html" class="cf-lockup" data-link aria-label="Federico Covolan — home">
+            <span class="cf-mark">FC</span>
+            <span class="cf-wm">Federico<br>Covolan</span>
+          </a>
+        </div>
+        <div class="cf-col">
+          <h4>Index</h4>
+          <a href="index.html" data-link>Home</a>
+          <a href="about.html" data-link>About me</a>
+          <a href="projects.html" data-link>Projects</a>
+          <a href="get_in_touch.html" data-link>Get in touch</a>
+        </div>
+        <div class="cf-col">
+          <h4>Elsewhere</h4>
+          <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="mailto:federicocovolan60@gmail.com">Email ↗</a>
+        </div>
+        <div class="cf-col">
+          <h4>Contact</h4>
+          <a href="mailto:federicocovolan60@gmail.com">federicocovolan60<br>@gmail.com</a>
+        </div>
+      </div>
+      <div class="closing-base">
+        <span>© 2026 Federico Covolan — Systemic &amp; Strategic Designer</span>
+        <span>Designed as a living system · <a href="privacy.html" data-link>Privacy &amp; Cookie Policy</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script src="pages.js"></script>
+</body>
+</html>
