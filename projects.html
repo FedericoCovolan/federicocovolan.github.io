@@ -110,14 +110,25 @@
     .eyebrow { font-family:var(--font-display); font-weight:700; font-size:12px; text-transform:uppercase; letter-spacing:.16em; color:var(--purple-bright); display:inline-flex; align-items:center; gap:12px; }
     .closing-head { font-family:var(--font-display); font-weight:500; font-size: clamp(34px,6vw,92px); line-height:1; letter-spacing:-0.04em; margin: 26px 0 38px; text-wrap:balance; max-width: 14ch; }
     .closing-head em { font-family:var(--font-editorial); font-style:italic; font-weight:400; color:var(--purple-bright); }
-    .closing-cta { display:inline-flex; align-items:center; gap:16px; text-decoration:none; font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size: clamp(14px,1.6vw,18px); color:var(--ink); background:var(--paper); padding:20px 30px; border-radius:999px; transition: transform .4s var(--ease-out), background .3s; will-change: transform; }
-    .closing-cta:hover { background:var(--purple); color:#fff; }
-    .closing-cta .arr { transition: transform .4s var(--ease-out); }
-    .closing-cta:hover .arr { transform: translate(4px,-4px); }
+
+
+
+
+
+    .closing-cta { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:.1em; font-size:clamp(14px,1.1vw,16px); color:var(--paper); background:transparent; padding:0; text-decoration:underline; text-decoration-color:var(--paper); text-decoration-thickness:1.5px; text-underline-offset:8px; transition: color .3s var(--ease-out), text-decoration-color .3s var(--ease-out); }
+    .closing-cta:hover { color:var(--purple-bright); text-decoration:underline; text-decoration-color:var(--purple-bright); text-decoration-thickness:1.5px; text-underline-offset:8px; }
+    .closing-cta .arr { display:inline-block; color:var(--purple-bright); font-size:1em; opacity:0; transform:translateX(-8px); transition: opacity .4s var(--ease-out), transform .4s var(--ease-out); }
+    .closing-cta:hover .arr { opacity:1; transform:translateX(0); }
+
     .closing-foot { margin-top: clamp(60px,10vh,120px); border-top:1px solid var(--line-dark); padding:30px 0; display:grid; grid-template-columns:1.4fr 1fr 1fr auto; gap:24px; align-items:start; }
     .cf-col h4 { font-family:var(--font-display); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.14em; color:var(--stone-2); margin-bottom:14px; }
     .cf-col a, .cf-col p { display:block; font-size:14px; color:var(--paper); text-decoration:none; line-height:1.9; opacity:.85; transition: opacity .25s, color .25s; }
     .cf-col a:hover { opacity:1; color:var(--purple-bright); }
+
+    .cf-col a.cf-lockup { display:inline-flex; align-items:center; gap:12px; text-decoration:none; transition: color .25s; line-height:1; }
+    .cf-col a.cf-lockup:hover { color:var(--purple-bright); opacity:1; }
+    .cf-mark { font-family:var(--font-display); font-weight:700; font-size:36px; line-height:1; letter-spacing:-1.4px; color:var(--paper); }
+    .cf-wm { font-family:var(--font-display); font-weight:600; font-size:13px; text-transform:uppercase; letter-spacing:.05em; line-height:1.05; color:var(--paper); white-space:nowrap; }
     .cf-brand { font-family:var(--font-display); font-weight:700; font-size: clamp(34px,4vw,52px); letter-spacing:-0.04em; line-height:.9; }
     .cf-brand span { color: var(--purple-bright); }
     .closing-base { border-top:1px solid var(--line-dark); padding:22px 0 28px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:12px; color:var(--stone-2); font-family:var(--font-display); }
@@ -156,6 +167,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="about.html" data-link>About me</a></li>
     <li><a href="projects.html" class="active" data-link>Projects</a></li>
+      <li class="mobile-only"><a href="get_in_touch.html" data-link>Get in touch</a></li>
   </ul>
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
@@ -265,9 +277,14 @@
     <div class="wrap">
       <p class="eyebrow reveal">Next</p>
       <h2 class="closing-head reveal">Have a system worth <em>untangling?</em></h2>
-      <a href="get_in_touch.html" class="closing-cta reveal" data-magnetic data-link>Start a conversation <span class="arr">↗</span></a>
+      <a href="get_in_touch.html" class="closing-cta reveal" data-magnetic data-link>Start a conversation <span class="arr" aria-hidden="true">→</span></a>
       <div class="closing-foot">
-        <div class="cf-col cf-brand-col"><div class="cf-brand">Federico<br><span>Covolan®</span></div></div>
+        <div class="cf-col cf-brand-col">
+          <a href="index.html" class="cf-lockup" data-link aria-label="Federico Covolan — home">
+            <span class="cf-mark">FC</span>
+            <span class="cf-wm">Federico<br>Covolan</span>
+          </a>
+        </div>
         <div class="cf-col">
           <h4>Index</h4>
           <a href="index.html" data-link>Home</a>
@@ -279,11 +296,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn ↗</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram ↗</a>
-          <a href="/cdn-cgi/l/email-protection#b5d3d0d1d0c7dcd6dad6dac3dad9d4db8385f5d2d8d4dcd99bd6dad8">Email ↗</a>
+          <a href="/cdn-cgi/l/email-protection#20464544455249434f434f564f4c414e161060474d41494c0e434f4d">Email ↗</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#1472717071667d777b777b627b78757a2224547379757d783a777b79">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#0a6c6f6e6f7863696569657c65666b643c3a4a6d676b636624696567">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">

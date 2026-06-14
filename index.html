@@ -71,6 +71,7 @@
     .logo-text { font-family: var(--font-display); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; line-height: 1.05; }
 
     .nav-links { display: flex; gap: 44px; list-style: none; position: absolute; left: 50%; transform: translateX(-50%); }
+    .nav-links li.mobile-only { display: none; }
     .nav-links a {
       font-family: var(--font-body); font-size: 14px; font-weight: 400;
       text-decoration: none; color: var(--ink); transition: color .25s; padding: 4px 0;
@@ -127,9 +128,21 @@
       display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
       font-family: var(--font-display); font-size: 12px; font-weight: 700; text-transform: uppercase;
       letter-spacing: .12em; color: var(--ink);
+      transition: color .3s var(--ease-out);
     }
-    .hero-scroll .circ { width: 46px; height: 46px; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; transition: .4s var(--ease-out); }
-    .hero-scroll:hover .circ { background: var(--purple); border-color: var(--purple); color: #fff; transform: translateY(4px); }
+    .hero-scroll .arr {
+      display: inline-block; font-size: 14px; color: var(--purple);
+      opacity: 0; transform: translateX(-8px);
+      transition: opacity .35s var(--ease-out), transform .35s var(--ease-out);
+    }
+    .hero-scroll:hover {
+      color: var(--purple);
+      text-decoration: underline;
+      text-decoration-color: var(--purple);
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 6px;
+    }
+    .hero-scroll:hover .arr { opacity: 1; transform: translateX(0); }
 
     /* duotone portrait, parallax, overlaps headline */
     .hero-portrait {
@@ -165,7 +178,7 @@
     }
     .disciplines-track span::after {
       content: '_'; color: var(--purple); font-weight: 700; font-size: 1em;
-      display: inline-block; transform: translateY(-.42em); margin: 0 .1em;
+      display: inline-block; margin: 0 .1em;
     }
     .disciplines-track em {
       font-family: var(--font-editorial); font-style: italic; font-weight: 400;
@@ -220,24 +233,24 @@
     .work-thumb img { width: 100%; height: 100%; object-fit: cover; }
     .work-foot { margin-top: 48px; display: flex; justify-content: flex-end; }
 
-    .ghost-link { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; text-decoration: none; color: var(--ink); }
-    .ghost-link .circ { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; transition: .4s var(--ease-out); }
-    .ghost-link:hover .circ { background: var(--purple); border-color: var(--purple); color: #fff; transform: translateX(4px); }
+    .ghost-link { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; text-decoration: none; color: var(--ink); transition: color .3s var(--ease-out); }
+    .ghost-link .circ { display: none; }
+    .ghost-link:hover { color: var(--purple); text-decoration: underline; text-decoration-color: var(--purple); text-decoration-thickness: 1.5px; text-underline-offset: 6px; }
 
     /* ====== CLOSING (DARK) ====== */
     .closing { background: var(--ink); color: var(--paper); padding: clamp(90px,14vh,170px) var(--gutter) 0; position: relative; z-index: 3; overflow: hidden; }
     .closing .eyebrow { color: var(--purple-bright); }
     .closing-head { font-family: var(--font-display); font-weight: 500; font-size: clamp(38px,7vw,108px); line-height: .98; letter-spacing: -0.04em; margin: 28px 0 40px; text-wrap: balance; }
     .closing-head em { font-family: var(--font-editorial); font-style: italic; font-weight: 400; color: var(--purple-bright); }
-    .closing-cta {
-      display: inline-flex; align-items: center; gap: 16px; text-decoration: none;
-      font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
-      font-size: clamp(14px,1.6vw,18px); color: var(--ink); background: var(--paper);
-      padding: 20px 30px; border-radius: 999px; transition: transform .4s var(--ease-out), background .3s; will-change: transform;
-    }
-    .closing-cta:hover { background: var(--purple); color: #fff; }
-    .closing-cta .arr { transition: transform .4s var(--ease-out); }
-    .closing-cta:hover .arr { transform: translate(4px,-4px); }
+
+
+
+
+
+    .closing-cta { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-family:var(--font-display); font-weight:700; text-transform:uppercase; letter-spacing:.1em; font-size:clamp(14px,1.1vw,16px); color:var(--paper); background:transparent; padding:0; text-decoration:underline; text-decoration-color:var(--paper); text-decoration-thickness:1.5px; text-underline-offset:8px; transition: color .3s var(--ease-out), text-decoration-color .3s var(--ease-out); }
+    .closing-cta:hover { color:var(--purple-bright); text-decoration:underline; text-decoration-color:var(--purple-bright); text-decoration-thickness:1.5px; text-underline-offset:8px; }
+    .closing-cta .arr { display:inline-block; color:var(--purple-bright); font-size:1em; opacity:0; transform:translateX(-8px); transition: opacity .4s var(--ease-out), transform .4s var(--ease-out); }
+    .closing-cta:hover .arr { opacity:1; transform:translateX(0); }
 
     .closing-foot { margin-top: clamp(70px,11vh,130px); border-top: 1px solid var(--line-dark); padding: 30px 0; display: grid; grid-template-columns: 1.4fr 1fr 1fr auto; gap: 24px; align-items: start; }
     .cf-col h4 { font-family: var(--font-display); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--stone-2); margin-bottom: 14px; }
@@ -271,7 +284,10 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 78px; left: var(--gutter); right: var(--gutter); background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 22px; gap: 14px; box-shadow: var(--shadow-md, 0 20px 50px rgba(0,0,0,.12)); }
+      .nav-links.open { display: flex; flex-direction: column; gap: 8px; position: fixed; top: 78px; left: auto; right: var(--gutter); width: min(260px, calc(100vw - 2 * var(--gutter))); transform: none; background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 14px 18px; z-index: 60; box-shadow: 0 24px 60px rgba(22,19,14,.14); }
+      .nav-links.open li { list-style: none; }
+      .nav-links.open a { display: block; padding: 10px 0; font-size: 16px; }
+      .nav-links.open li.mobile-only { display: block; border-top: 1px solid var(--line); margin-top: 4px; padding-top: 4px; }
       .statement-inner { grid-template-columns: 1fr; gap: 28px; }
       .hero-portrait { display: none; }
       .closing-foot { grid-template-columns: 1fr 1fr; }
@@ -301,6 +317,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="about.html" data-link>About me</a></li>
     <li><a href="projects.html" data-link>Projects</a></li>
+      <li class="mobile-only"><a href="get_in_touch.html" data-link>Get in touch</a></li>
   </ul>
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
@@ -314,7 +331,6 @@
     <div class="hero-stage">
       <div class="hero-portrait" data-parallax="0.14">
         <img src="img/hero.png" alt="Federico Covolan">
-        <span class="ptag">Systemic Design · 2026</span>
       </div>
 
       <div class="hero-headline">
@@ -327,7 +343,7 @@
 
       <div class="hero-sub">
         <p class="hero-role">Turning complex resource flows into <em>circular, regenerative</em> opportunity.</p>
-        <a href="#statement" class="hero-scroll"><span class="circ">↓</span> Scroll to explore</a>
+        <a href="#statement" class="hero-scroll">Scroll to explore <span class="arr" aria-hidden="true">↓</span></a>
       </div>
     </div>
   </section>
@@ -365,11 +381,11 @@
           I design the <em>invisible connections</em> that make an ecosystem work — translating deep-tech research and resource flows into <em>circular</em>, buildable opportunity.
         </p>
         <div class="statement-body reveal" data-d="1">
-          <p>I'm the founder of <strong>ProLemna</strong> — winner of the 2024 Range Rover Leadership Academy and incubated at 2i3T. I apply entrepreneurial leadership to the agrifood sector, leveraging Duckweed to build regenerative supply chains. Merging deep-tech with business development, I bridge vision and market execution — and recalibrate my practice through the outdoors.</p>
+          <p>Trained at <strong>Politecnico di Torino</strong>, <strong>AHO Oslo</strong> and <strong>Ferrara</strong>, I work at the intersection of systemic, strategic and speculative design — mapping resource flows, prototyping new supply chains and translating deep-tech research into viable products and services. Today I'm building <strong>ProLemna</strong>, an agrifood venture incubated at 2i3T and selected by the 2024 Range Rover Leadership Academy — where I bridge vision and market execution every day.</p>
         </div>
         <div class="statement-meta reveal" data-d="2">
           <div class="stat-row"><span class="k">Based</span><span class="v">Torino, IT — open to remote</span></div>
-          <div class="stat-row"><span class="k">Training</span><span class="v">Politecnico di Torino · AHO Oslo · Ferrara</span></div>
+          <div class="stat-row"><span class="k">Education</span><span class="v">Politecnico di Torino · AHO Oslo · Ferrara</span></div>
           <div class="stat-row"><span class="k">Focus</span><span class="v">Systemic · Strategic · Speculative design</span></div>
         </div>
       </div>
@@ -428,7 +444,7 @@
         Designing the systems that <em>regenerate</em> what we've spent — from soil to supply chain
       </h2>
       <a href="get_in_touch.html" class="closing-cta reveal" data-d="2" data-magnetic data-link>
-        Start a conversation <span class="arr">↗</span>
+        Start a conversation <span class="arr" aria-hidden="true">→</span>
       </a>
 
       <div class="closing-foot">
@@ -449,11 +465,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn ↗</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram ↗</a>
-          <a href="/cdn-cgi/l/email-protection#a6c0c3c2c3d4cfc5c9c5c9d0c9cac7c89096e6c1cbc7cfca88c5c9cb">Email ↗</a>
+          <a href="/cdn-cgi/l/email-protection#d1b7b4b5b4a3b8b2beb2bea7bebdb0bfe7e191b6bcb0b8bdffb2bebc">Email ↗</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#9ff9fafbfaedf6fcf0fcf0e9f0f3fef1a9afdff8f2fef6f3b1fcf0f2">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#c5a3a0a1a0b7aca6aaa6aab3aaa9a4abf3f585a2a8a4aca9eba6aaa8">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">

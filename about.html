@@ -133,9 +133,11 @@
     .ft-meta-row .v { font-family: var(--font-display); font-size: 14px; font-weight: 500; letter-spacing: -0.01em; }
 
     .ft-cta { margin-top: clamp(28px,3.5vw,40px); }
-    .ft-cta a { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: var(--paper); font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; }
-    .ft-cta a .circ { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--paper); display: grid; place-items: center; transition: .4s var(--ease-out); }
-    .ft-cta a:hover .circ { background: var(--purple-bright); border-color: var(--purple-bright); color: var(--ink); transform: translateX(4px); }
+    .ft-cta a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--paper); font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; transition: color .3s var(--ease-out); }
+    .ft-cta a .circ { display: inline-block; color: var(--purple-bright); font-size: 14px; opacity: 0; transform: translateX(-6px); transition: opacity .35s var(--ease-out), transform .35s var(--ease-out); width: auto; height: auto; border: 0; background: transparent; }
+    .ft-cta a:hover { color: var(--purple-bright); text-decoration: underline; text-decoration-color: var(--purple-bright); text-decoration-thickness: 1.5px; text-underline-offset: 6px; }
+    .ft-cta a:hover .circ { opacity: 1; transform: translateX(0); }ppercase; letter-spacing: .1em; }
+    .ft-cta a:hover .circ { opacity: 1; transform: translateX(0); }
 
     .ft-media {
       display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;
@@ -207,6 +209,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="about.html" class="active" data-link>About me</a></li>
     <li><a href="projects.html" data-link>Projects</a></li>
+      <li class="mobile-only"><a href="get_in_touch.html" data-link>Get in touch</a></li>
   </ul>
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
@@ -307,7 +310,7 @@
         </div>
 
         <div class="ft-cta reveal" data-d="3">
-          <a href="project_prolemna.html" data-link>Read the project <span class="circ">↗</span></a>
+          <a href="project_prolemna.html" data-link>Read the project <span class="circ">→</span></a>
         </div>
       </div>
 
@@ -317,7 +320,7 @@
         </div>
         <div class="ft-col">
           <div class="ft-img">
-            <img src="img/project_prolemna.jpg" alt="ProLemna — systemic map">
+            <img src="img/project_prolemna.png" alt="ProLemna — systemic map">
           </div>
           <div class="ft-img">
             <img src="img/prolemna_3.png" alt="ProLemna — duckweed close-up">
@@ -361,7 +364,7 @@
         Designing the systems that <em>regenerate</em> what we've spent — from soil to supply chain
       </h2>
       <a href="get_in_touch.html" class="closing-cta reveal" data-d="2" data-link>
-        Start a conversation <span class="arr">↗</span>
+        Start a conversation <span class="arr" aria-hidden="true">→</span>
       </a>
 
       <div class="closing-foot">
@@ -382,11 +385,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener">Instagram ↗</a>
-          <a href="mailto:federicocovolan60@gmail.com">Email ↗</a>
+          <a href="/cdn-cgi/l/email-protection#6305060706110a000c000c150c0f020d555323040e020a0f4d000c0e">Email ↗</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="mailto:federicocovolan60@gmail.com">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#dbbdbebfbea9b2b8b4b8b4adb4b7bab5edeb9bbcb6bab2b7f5b8b4b6">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">
@@ -397,6 +400,13 @@
   </footer>
 </main>
 
-<script src="pages.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="pages.js"></script>
+
+<script>
+(function(){
+  var hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
+  if(hb && nl && !hb.dataset.bound){ hb.dataset.bound='1'; hb.addEventListener('click', function(){ nl.classList.toggle('open'); }); }
+})();
+</script>
 </body>
 </html>

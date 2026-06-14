@@ -20,6 +20,7 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="about.html" data-link>About me</a></li>
     <li><a href="projects.html" class="active" data-link>Projects</a></li>
+      <li class="mobile-only"><a href="get_in_touch.html" data-link>Get in touch</a></li>
   </ul>
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
@@ -205,7 +206,7 @@
         Designing the systems that <em>regenerate</em> what we've spent
       </h2>
       <a href="get_in_touch.html" class="closing-cta reveal" data-d="2" data-link>
-        Start a conversation <span class="arr">↗</span>
+        Start a conversation <span class="arr" aria-hidden="true">→</span>
       </a>
 
       <div class="closing-foot">
@@ -226,11 +227,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener">Instagram ↗</a>
-          <a href="/cdn-cgi/l/email-protection#7a1c1f1e1f0813191519150c15161b144c4a3a1d171b131654191517">Email ↗</a>
+          <a href="/cdn-cgi/l/email-protection#6402010001160d070b070b120b08050a5254240309050d084a070b09">Email ↗</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#6d0b0809081f040e020e021b02010c035b5d2d0a000c0401430e0200">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#60060504051209030f030f160f0c010e565020070d01090c4e030f0d">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">
@@ -242,5 +243,12 @@
 </main>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="pages.js"></script>
+
+<script>
+(function(){
+  var hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
+  if(hb && nl && !hb.dataset.bound){ hb.dataset.bound='1'; hb.addEventListener('click', function(){ nl.classList.toggle('open'); }); }
+})();
+</script>
 </body>
 </html>
