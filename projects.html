@@ -145,7 +145,7 @@
       .nav-links.open { display:flex; flex-direction:column; gap:8px; position:fixed; top:78px; left:auto; right:var(--gutter); width:min(260px, calc(100vw - 2 * var(--gutter))); transform:none; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:14px 18px; z-index:60; box-shadow:0 24px 60px rgba(22,19,14,.14); }
       .nav-links.open li { list-style:none; }
       .nav-links.open a { display:block; padding:10px 0; font-size:16px; }
-      .nav-links.open li.mobile-only { display:block; border-top:1px solid var(--line); margin-top:4px; padding-top:4px; }x; padding:22px; gap:14px; box-shadow:0 20px 50px rgba(0,0,0,.12); }
+      .nav-links.open li.mobile-only { display:block; border-top:1px solid var(--line); margin-top:4px; padding-top:4px; }
       .pcard, .pcard.s7, .pcard.s5, .pcard.s4, .pcard.s6 { grid-column: span 6; }
       .pcard.s12 { grid-column: span 12; }
       .closing-foot { grid-template-columns: 1fr 1fr; }
@@ -176,7 +176,7 @@
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
 
 <main>
@@ -300,11 +300,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn →</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram →</a>
-          <a href="/cdn-cgi/l/email-protection#1375767776617a707c707c657c7f727d252353747e727a7f3d707c7e">Email →</a>
+          <a href="/cdn-cgi/l/email-protection#1670737273647f7579757960797a7778202656717b777f7a3875797b">Email →</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#5432313031263d373b373b223b38353a6264143339353d387a373b39">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#f294979697809b919d919d849d9e939cc4c2b2959f939b9edc919d9f">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">
@@ -318,8 +318,7 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
   const fine=matchMedia('(pointer:fine)').matches;
-  const hb=document.getElementById('hamburger'), nl=document.getElementById('navLinks');
-  hb&&hb.addEventListener('click',()=>nl.classList.toggle('open'));
+  
 
   const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.1, rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
