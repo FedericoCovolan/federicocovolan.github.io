@@ -47,6 +47,7 @@
     .logo-mark { font-family:var(--font-display); font-weight:700; font-size:26px; line-height:1; letter-spacing:-1px; }
     .logo-text { font-family:var(--font-display); font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em; line-height:1.05; }
     .nav-links { display:flex; gap:44px; list-style:none; position:absolute; left:50%; transform:translateX(-50%); }
+    .nav-links li.mobile-only { display:none; }
     .nav-links a { font-family:var(--font-body); font-size:14px; font-weight:400; text-decoration:none; color:var(--ink); transition: color .25s; padding:4px 0; }
     .nav-links a:hover, .nav-links a.active { color:var(--purple); }
     .nav-cta { margin-left:auto; }
@@ -141,7 +142,10 @@
     @media (max-width: 760px) {
       .nav-links, .nav-cta { display:none; }
       .hamburger { display:flex; }
-      .nav-links.open { display:flex; flex-direction:column; position:fixed; top:78px; left:var(--gutter); right:var(--gutter); background:var(--paper); border:1px solid var(--line); border-radius:14px; padding:22px; gap:14px; box-shadow:0 20px 50px rgba(0,0,0,.12); }
+      .nav-links.open { display:flex; flex-direction:column; gap:8px; position:fixed; top:78px; left:auto; right:var(--gutter); width:min(260px, calc(100vw - 2 * var(--gutter))); transform:none; background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:14px 18px; z-index:60; box-shadow:0 24px 60px rgba(22,19,14,.14); }
+      .nav-links.open li { list-style:none; }
+      .nav-links.open a { display:block; padding:10px 0; font-size:16px; }
+      .nav-links.open li.mobile-only { display:block; border-top:1px solid var(--line); margin-top:4px; padding-top:4px; }x; padding:22px; gap:14px; box-shadow:0 20px 50px rgba(0,0,0,.12); }
       .pcard, .pcard.s7, .pcard.s5, .pcard.s4, .pcard.s6 { grid-column: span 6; }
       .pcard.s12 { grid-column: span 12; }
       .closing-foot { grid-template-columns: 1fr 1fr; }
@@ -195,23 +199,23 @@
       </div>
       <div class="pgrid">
         <a href="project_prolemna.html" class="pcard s7 wide reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">01</span><img src="img/project_prolemna.png" alt="ProLemna"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">01</span><img src="img/project_prolemna.png" alt="ProLemna"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">ProLemna</span><span class="pcard-tag">Startup · 2023</span></div>
         </a>
         <a href="project_protein.html" class="pcard s5 tall reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">02</span><img src="img/project_protein.png" alt="Beyond the protein transition"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">02</span><img src="img/project_protein.png" alt="Beyond the protein transition"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Beyond the Protein Transition</span><span class="pcard-tag">Foresight · 2026</span></div>
         </a>
         <a href="project_sociotechnical.html" class="pcard s5 tall reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">03</span><img src="img/project_sociotechnical.png" alt="Socio-technical challenges"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">03</span><img src="img/project_sociotechnical.png" alt="Socio-technical challenges"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Socio-technical Challenges</span><span class="pcard-tag">Research · 2024</span></div>
         </a>
         <a href="project_oslo.html" class="pcard s7 wide reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">04</span><img src="img/project_oslo.png" alt="Projecting and reacting: Oslo"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">04</span><img src="img/project_oslo.png" alt="Projecting and reacting: Oslo"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Projecting &amp; Reacting: Oslo</span><span class="pcard-tag">Speculative · AHO · 2024</span></div>
         </a>
         <a href="project_medical.html" class="pcard s12 banner reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">05</span><img src="img/project_medical.png" alt="Progetti Medical"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">05</span><img src="img/project_medical.png" alt="Progetti Medical"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Progetti Medical</span><span class="pcard-tag">Service Systems · 2025</span></div>
         </a>
       </div>
@@ -228,15 +232,15 @@
       </div>
       <div class="pgrid">
         <a href="project_pianta.html" class="pcard s4 tall reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">06</span><img src="img/project_pianta.png" alt="Pianta.to"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">06</span><img src="img/project_pianta.png" alt="Pianta.to"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Pianta.to</span><span class="pcard-tag">UX/UI · 2024</span></div>
         </a>
         <a href="project_404.html" class="pcard s4 tall reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">07</span><img src="img/project_404.png" alt="404 Agency"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">07</span><img src="img/project_404.png" alt="404 Agency"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">404 Agency</span><span class="pcard-tag">Speculative · 2024</span></div>
         </a>
         <a href="project_hale.html" class="pcard s4 tall reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">08</span><img src="img/project_hale.png" alt="Hale"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">08</span><img src="img/project_hale.png" alt="Hale"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Hale</span><span class="pcard-tag">Service · 2024</span></div>
         </a>
       </div>
@@ -253,19 +257,19 @@
       </div>
       <div class="pgrid">
         <a href="project_tisbe.html" class="pcard s6 reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">09</span><img src="img/project_tisbe.png" alt="Tisbe chair"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">09</span><img src="img/project_tisbe.png" alt="Tisbe chair"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Tisbe Chair</span><span class="pcard-tag">Product · 2022</span></div>
         </a>
         <a href="project_leaves.html" class="pcard s6 reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">10</span><img src="img/project_leaves.png" alt="Leaves water system"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">10</span><img src="img/project_leaves.png" alt="Leaves water system"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Leaves Water System</span><span class="pcard-tag">Product · 2022</span></div>
         </a>
         <a href="project_overlighting.html" class="pcard s7 wide reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">11</span><img src="img/project_overlighting.png" alt="Overlighting"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">11</span><img src="img/project_overlighting.png" alt="Overlighting"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Overlighting</span><span class="pcard-tag">Exhibition · 2023</span></div>
         </a>
         <a href="project_mercato.html" class="pcard s5 tall reveal" data-link>
-          <div class="pcard-media"><span class="pcard-idx">12</span><img src="img/project_mercato.png" alt="Il mercato delle storie"><div class="pcard-over"><span class="view">View project ↗</span></div></div>
+          <div class="pcard-media"><span class="pcard-idx">12</span><img src="img/project_mercato.png" alt="Il mercato delle storie"><div class="pcard-over"><span class="view">View project →</span></div></div>
           <div class="pcard-foot"><span class="pcard-name">Il Mercato delle Storie</span><span class="pcard-tag">Exhibition · 2024</span></div>
         </a>
       </div>
@@ -294,18 +298,18 @@
         </div>
         <div class="cf-col">
           <h4>Elsewhere</h4>
-          <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn ↗</a>
-          <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram ↗</a>
-          <a href="/cdn-cgi/l/email-protection#20464544455249434f434f564f4c414e161060474d41494c0e434f4d">Email ↗</a>
+          <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn →</a>
+          <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram →</a>
+          <a href="/cdn-cgi/l/email-protection#1375767776617a707c707c657c7f727d252353747e727a7f3d707c7e">Email →</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#0a6c6f6e6f7863696569657c65666b643c3a4a6d676b636624696567">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#5432313031263d373b373b223b38353a6264143339353d387a373b39">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">
         <span>© 2026 Federico Covolan — Systemic &amp; Strategic Designer</span>
-        <span>Designed as a living system · <a href="privacy.html" data-link>Privacy &amp; Cookie Policy</a></span>
+        <span>Portfolio website · <a href="privacy.html" data-link>Privacy &amp; Cookie Policy</a></span>
       </div>
     </div>
   </footer>
