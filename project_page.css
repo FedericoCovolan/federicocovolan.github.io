@@ -176,11 +176,15 @@
 }
 .proj-next a:hover .name { color: var(--purple); }
 .proj-next .arr {
-  width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--ink);
-  display: grid; place-items: center; font-size: 16px;
-  transition: .4s var(--ease-out); flex-shrink: 0; align-self: center;
+  display: inline-block;
+  font-family: var(--font-display); font-weight: 700; font-size: 18px;
+  color: var(--purple);
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity .4s var(--ease-out), transform .4s var(--ease-out);
+  flex-shrink: 0; align-self: center;
 }
-.proj-next a:hover .arr { background: var(--purple); border-color: var(--purple); color: #fff; transform: translateX(6px); }
+.proj-next a:hover .arr { opacity: 1; transform: translateX(0); }
+.proj-next a:hover .name { text-decoration: underline; text-decoration-color: var(--purple); text-decoration-thickness: 2px; text-underline-offset: 10px; }
 
 @media (max-width: 900px) {
   .proj-hero { padding-top: 100px; }
