@@ -134,10 +134,9 @@
 
     .ft-cta { margin-top: clamp(28px,3.5vw,40px); }
     .ft-cta a { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--paper); font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; transition: color .3s var(--ease-out); }
-    .ft-cta a .circ { display: inline-block; color: var(--purple-bright); font-size: 14px; opacity: 0; transform: translateX(-6px); transition: opacity .35s var(--ease-out), transform .35s var(--ease-out); width: auto; height: auto; border: 0; background: transparent; }
+    .ft-cta a .arr { display: inline-block; color: var(--purple-bright); font-size: 14px; opacity: 0; transform: translateX(-6px); transition: opacity .35s var(--ease-out), transform .35s var(--ease-out); }
     .ft-cta a:hover { color: var(--purple-bright); text-decoration: underline; text-decoration-color: var(--purple-bright); text-decoration-thickness: 1.5px; text-underline-offset: 6px; }
-    .ft-cta a:hover .circ { opacity: 1; transform: translateX(0); }ppercase; letter-spacing: .1em; }
-    .ft-cta a:hover .circ { opacity: 1; transform: translateX(0); }
+    .ft-cta a:hover .arr { opacity: 1; transform: translateX(0); }
 
     .ft-media {
       display: grid; grid-template-columns: 1.2fr 1fr; gap: 12px;
@@ -214,7 +213,7 @@
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
 
 <main>
@@ -286,7 +285,7 @@
         <p>Driven by a passion for continuous learning, my work has evolved into a deeply <strong>multidisciplinary practice</strong> focused on navigating the layers of contemporary complexity — tackling innovation through a systemic lens, treating every challenge not as a standalone product, but as a <strong>living ecosystem</strong>.</p>
         <p>My expertise spans <strong>product design, service orchestration and speculative futures</strong>, with a core focus on making invisible connections both visible and functional. Drawing from Politecnico di Torino and AHO Oslo, I translate complex socio-technical data into clear, strategic narratives.</p>
         <p>The goal is to bridge the gap between high-level strategy and the modular, practical execution required to <strong>scale a vision</strong> — committed to a design practice that is critical, sustainable, and accessible.</p>
-        <a href="projects.html" class="ghost-link" data-link style="margin-top:18px;">See the projects <span class="circ">↗</span></a>
+        <a href="projects.html" class="ghost-link" data-link style="margin-top:18px;">See the projects <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -310,7 +309,7 @@
         </div>
 
         <div class="ft-cta reveal" data-d="3">
-          <a href="project_prolemna.html" data-link>Read the project <span class="circ">→</span></a>
+          <a href="project_prolemna.html" data-link>Read the project <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div>
 
@@ -385,11 +384,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank" rel="noopener">LinkedIn →</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank" rel="noopener">Instagram →</a>
-          <a href="/cdn-cgi/l/email-protection#9dfbf8f9f8eff4fef2fef2ebf2f1fcf3abadddfaf0fcf4f1b3fef2f0">Email →</a>
+          <a href="/cdn-cgi/l/email-protection#5432313031263d373b373b223b38353a6264143339353d387a373b39">Email →</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#6701020302150e0408040811080b0609515727000a060e0b4904080a">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#eb8d8e8f8e9982888488849d84878a85dddbab8c868a8287c5888486">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">

@@ -322,7 +322,7 @@
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
 </nav>
 
 <main>
@@ -431,7 +431,7 @@
       </div>
 
       <div class="work-foot reveal">
-        <a href="projects.html" class="ghost-link" data-link>All twelve projects <span class="circ">↗</span></a>
+        <a href="projects.html" class="ghost-link" data-link>All twelve projects <span class="arr" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -465,11 +465,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn →</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram →</a>
-          <a href="/cdn-cgi/l/email-protection#5335363736213a303c303c253c3f323d656313343e323a3f7d303c3e">Email →</a>
+          <a href="/cdn-cgi/l/email-protection#2b4d4e4f4e5942484448445d44474a451d1b6b4c464a424705484446">Email →</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#8ee8ebeaebfce7ede1ede1f8e1e2efe0b8becee9e3efe7e2a0ede1e3">federicocovolan60<br>@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#8ceae9e8e9fee5efe3efe3fae3e0ede2babcccebe1ede5e0a2efe3e1">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">
@@ -487,9 +487,7 @@
   const fine = matchMedia('(pointer:fine)').matches;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- Hamburger ---- */
-  const hb = document.getElementById('hamburger'), nl = document.getElementById('navLinks');
-  hb && hb.addEventListener('click', () => nl.classList.toggle('open'));
+  
 
   /* ---- Parallax on hero portrait ---- */
   const par = document.querySelectorAll('[data-parallax]');
