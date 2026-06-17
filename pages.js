@@ -2,9 +2,34 @@
 (function(){
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Hamburger */
+  /* ===== Hamburger =====
+     Bind both the toggle AND the outside-close here so the order is deterministic.
+     stopPropagation() on the button click is what makes mobile reliable: without it
+     the same tap bubbled up to the document handler could (depending on touch timing
+     on iOS Safari) be seen as an "outside" click and immediately re-close the menu.
+     We also bind touchend with preventDefault so the menu opens on the first tap
+     even when the browser is still deciding click vs scroll. */
   var hb = document.getElementById('hamburger'), nl = document.getElementById('navLinks');
-  if (hb && nl) hb.addEventListener('click', function(){ nl.classList.toggle('open'); });
+  if (hb && nl) {
+    function toggleMenu(e){
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      nl.classList.toggle('open');
+    }
+    hb.addEventListener('click', toggleMenu);
+    hb.addEventListener('touchend', toggleMenu);
+
+    /* Close on outside click — but ignore clicks on the menu itself or its trigger */
+    document.addEventListener('click', function(e){
+      if (!nl.classList.contains('open')) return;
+      if (nl.contains(e.target) || hb.contains(e.target)) return;
+      nl.classList.remove('open');
+    });
+
+    /* Close after navigating via a menu link */
+    nl.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ nl.classList.remove('open'); });
+    });
+  }
 
   /* Reveal on scroll */
   var io = new IntersectionObserver(function(ents){
