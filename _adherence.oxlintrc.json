@@ -1,0 +1,180 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "pages.js"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Space Grotesk|Archivo|Instrument Serif))/i]",
+        "message": "Font not provided by the design system. Available: Space Grotesk, Archivo, Instrument Serif."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {},
+    "tokens": [
+      "--body",
+      "--body-lg",
+      "--body-sm",
+      "--display-1",
+      "--display-1-lh",
+      "--display-1-ls",
+      "--display-2",
+      "--display-2-lh",
+      "--display-2-ls",
+      "--dur",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-in-out",
+      "--ease-out",
+      "--font-body",
+      "--font-display",
+      "--font-editorial",
+      "--gutter",
+      "--h1",
+      "--h1-ls",
+      "--h2",
+      "--h2-ls",
+      "--h3",
+      "--h3-ls",
+      "--ink",
+      "--ink-2",
+      "--ink-soft",
+      "--label",
+      "--label-ls",
+      "--label-weight",
+      "--lilac",
+      "--lilac-2",
+      "--line",
+      "--line-dark",
+      "--maxw",
+      "--paper",
+      "--paper-2",
+      "--paper-3",
+      "--purple",
+      "--purple-bright",
+      "--purple-deep",
+      "--r-md",
+      "--r-pill",
+      "--r-sm",
+      "--r-xs",
+      "--shadow-lift",
+      "--shadow-md",
+      "--shadow-purple",
+      "--shadow-sm",
+      "--sp-1",
+      "--sp-2",
+      "--sp-3",
+      "--sp-4",
+      "--sp-5",
+      "--sp-6",
+      "--sp-7",
+      "--stone",
+      "--stone-2"
+    ],
+    "tokenKinds": {
+      "--paper": "color",
+      "--paper-2": "color",
+      "--paper-3": "color",
+      "--ink": "color",
+      "--ink-2": "color",
+      "--ink-soft": "color",
+      "--purple": "color",
+      "--purple-deep": "color",
+      "--purple-bright": "color",
+      "--lilac": "color",
+      "--lilac-2": "color",
+      "--stone": "color",
+      "--stone-2": "color",
+      "--line": "color",
+      "--line-dark": "color",
+      "--font-display": "font",
+      "--font-body": "font",
+      "--font-editorial": "font",
+      "--display-1": "font",
+      "--display-1-ls": "font",
+      "--display-1-lh": "font",
+      "--display-2": "font",
+      "--display-2-ls": "font",
+      "--display-2-lh": "font",
+      "--h1": "font",
+      "--h1-ls": "font",
+      "--h2": "font",
+      "--h2-ls": "font",
+      "--h3": "font",
+      "--h3-ls": "font",
+      "--body-lg": "spacing",
+      "--body": "spacing",
+      "--body-sm": "spacing",
+      "--label": "spacing",
+      "--label-ls": "spacing",
+      "--label-weight": "font",
+      "--r-xs": "spacing",
+      "--r-sm": "spacing",
+      "--r-md": "spacing",
+      "--r-pill": "spacing",
+      "--shadow-sm": "shadow",
+      "--shadow-md": "shadow",
+      "--shadow-lift": "shadow",
+      "--shadow-purple": "shadow",
+      "--sp-1": "spacing",
+      "--sp-2": "spacing",
+      "--sp-3": "spacing",
+      "--sp-4": "spacing",
+      "--sp-5": "spacing",
+      "--sp-6": "spacing",
+      "--sp-7": "spacing",
+      "--ease-out": "other",
+      "--ease-in-out": "other",
+      "--dur-fast": "other",
+      "--dur": "other",
+      "--dur-slow": "other",
+      "--maxw": "spacing",
+      "--gutter": "spacing"
+    },
+    "fontFamilies": [
+      "Archivo",
+      "Instrument Serif",
+      "Space Grotesk"
+    ]
+  }
+}

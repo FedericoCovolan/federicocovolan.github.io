@@ -322,7 +322,7 @@
   <div class="nav-cta">
     <a href="get_in_touch.html" data-link>Get in touch</a>
   </div>
-  <button class="hamburger" id="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <main>
@@ -465,11 +465,11 @@
           <h4>Elsewhere</h4>
           <a href="https://www.linkedin.com/in/federicocovolan0423/" target="_blank">LinkedIn →</a>
           <a href="https://www.instagram.com/covolanfederico/" target="_blank">Instagram →</a>
-          <a href="/cdn-cgi/l/email-protection#2b4d4e4f4e5942484448445d44474a451d1b6b4c464a424705484446">Email →</a>
+          <a href="mailto:federicocovolan60@gmail.com">Email →</a>
         </div>
         <div class="cf-col">
           <h4>Contact</h4>
-          <a href="/cdn-cgi/l/email-protection#8ceae9e8e9fee5efe3efe3fae3e0ede2babcccebe1ede5e0a2efe3e1">federicocovolan60<br>@gmail.com</a>
+          <a href="mailto:federicocovolan60@gmail.com">federicocovolan60<br>@gmail.com</a>
         </div>
       </div>
       <div class="closing-base">
@@ -482,12 +482,27 @@
 
 <div class="work-thumb" id="workThumb"><img id="workThumbImg" alt=""></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 (function(){
   const fine = matchMedia('(pointer:fine)').matches;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  
+  /* ---- Hamburger menu (mobile) ---- */
+  const hb = document.getElementById('hamburger'), nl = document.getElementById('navLinks');
+  if (hb && nl) {
+    function toggleMenu(e){
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      nl.classList.toggle('open');
+    }
+    hb.addEventListener('click', toggleMenu);
+    hb.addEventListener('touchend', toggleMenu);
+    document.addEventListener('click', e => {
+      if (!nl.classList.contains('open')) return;
+      if (nl.contains(e.target) || hb.contains(e.target)) return;
+      nl.classList.remove('open');
+    });
+    nl.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl.classList.remove('open')));
+  }
 
   /* ---- Parallax on hero portrait ---- */
   const par = document.querySelectorAll('[data-parallax]');
